@@ -1,0 +1,2405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXGLAM | Book Your Beauty Service</title>
+    <style>
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --primary: #000000;
+            --secondary: #f8f8f8;
+            --accent: #ff6b6b;
+            --text-light: #666;
+            --border: #e5e5e5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'ProximaNova-Regular', HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--black);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .admin-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .admin-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            position: absolute;
+            right: 0;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--black);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-menu a:hover {
+            background: var(--secondary);
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-iframe iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 60px;
+            transform: translateY(-50%);
+            z-index: 10;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .hero-text-below {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 10;
+            text-align: left;
+            background: white;
+            padding: 10px 60px 20px 60px;
+            box-sizing: border-box;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            color: var(--black);
+        }
+
+        .hero-text-below .hero-title {
+            font-size: 1.5rem !important;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--black);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            color: var(--black);
+        }
+
+        .hero .subtitle-description {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+            color: var(--black);
+            opacity: 0.8;
+        }
+
+        .hero .cta-button {
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .glass-button {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--black) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero .cta-button:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 14px;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            display: block;
+            font-size: 24px;
+            margin-top: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Beauty Brands Section */
+        .brands-section {
+            padding: 60px 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brands-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: var(--black);
+            letter-spacing: 2px;
+        }
+
+        .brands-carousel {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            white-space: nowrap;
+        }
+
+        .brands-track {
+            display: inline-flex;
+            animation: scroll 30s linear infinite;
+            gap: 40px;
+            will-change: transform;
+        }
+
+        .brand-item {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: var(--secondary);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-width: 200px;
+            height: 120px;
+        }
+
+        .brand-item img {
+            max-width: 150px;
+            max-height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .brand-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Booking Form */
+        .booking-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .booking-form {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: var(--black);
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--black);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .service-card.selected {
+            border-color: var(--black);
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .service-name {
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--black);
+            border: 2px solid var(--black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .form-navigation .btn {
+            width: 48%;
+        }
+
+        /* Apply to LXGLAM Section */
+        .featured-section {
+            padding: 80px 0;
+            background: var(--secondary);
+        }
+        
+        .apply-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .apply-info h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .apply-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+        
+        .benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            color: var(--text);
+        }
+        
+        .benefit-icon {
+            font-size: 20px;
+        }
+        
+        .apply-button-container {
+            flex-shrink: 0;
+        }
+        
+        .apply-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .apply-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .apply-info h3 {
+                font-size: 24px;
+            }
+            
+            .apply-info p {
+                font-size: 16px;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        .salon-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .salon-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .salon-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .salon-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--secondary), var(--border));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--text-light);
+        }
+
+        .salon-info {
+            padding: 25px;
+        }
+
+        .salon-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .salon-location {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .salon-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #ffd700;
+        }
+
+        .salon-services {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Progress Indicator */
+        .progress-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .progress-step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .progress-step.completed {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+            }
+
+            .hero-content {
+                left: 30px;
+                max-width: calc(100% - 60px);
+            }
+
+            .hero-text-below {
+                bottom: 5px;
+                left: 0;
+                right: 0;
+                width: 100%;
+                padding: 5px 30px 15px 30px;
+            }
+
+            .hero-text-below .hero-title {
+                font-size: 1.3rem !important;
+                margin-bottom: 6px;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+            }
+
+            .hero .subtitle {
+                font-size: 20px;
+            }
+
+            .hero .cta-button {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+        }
+
+            .booking-form {
+                margin: 0 20px;
+                padding: 30px 20px;
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero-content {
+                left: 20px;
+                max-width: calc(100% - 40px);
+            }
+
+            .hero-text-below {
+                bottom: -5px;
+                left: 0;
+                right: 0;
+                width: 100%;
+                padding: 5px 20px 15px 20px;
+            }
+
+            .hero-text-below .hero-title {
+                font-size: 1.2rem !important;
+                margin-bottom: 5px;
+            }
+
+            .hero-description {
+                font-size: 0.85rem;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
+            }
+        }
+
+        /* Filter Responsive */
+        @media (max-width: 768px) {
+            .filter-row {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .filter-dropdown {
+                min-width: 100%;
+            }
+
+            .filter-actions {
+                margin-left: 0;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .filter-controls {
+                padding: 20px;
+            }
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .filter-controls {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-dropdown {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .filter-dropdown label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: var(--black);
+            letter-spacing: 0.5px;
+        }
+
+        .filter-dropdown .filter-label {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            margin-bottom: 8px;
+        }
+
+        .filter-dropdown .filter-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--white);
+            color: var(--black);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--black);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+        }
+
+        .filter-select:hover {
+            border-color: var(--black);
+        }
+
+        .filter-select-placeholder {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--white);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-select-placeholder::after {
+            content: "▼";
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .filter-select-placeholder:hover {
+            border-color: var(--black);
+        }
+
+        .filter-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-left: auto;
+        }
+
+        .clear-filters-btn {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clear-filters-btn:hover {
+            background: var(--secondary);
+            color: var(--black);
+            border-color: var(--black);
+        }
+
+        .results-count {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .results-count span {
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        /* Masters Grid */
+        .masters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .master-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .master-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .glam-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .glam-button:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .master-card.hidden {
+            display: none;
+        }
+
+        .instagram-preview {
+            height: 300px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instagram-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="8" fill="white"/><rect x="35" y="35" width="30" height="30" fill="none" stroke="white" stroke-width="2" rx="4"/></svg>') center/60px no-repeat;
+            opacity: 0.8;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: #fff;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .carousel-track {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+        }
+        .carousel-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: none;
+            border-radius: 20px 20px 0 0;
+            transition: opacity 0.4s;
+        }
+        .carousel-img.active {
+            display: block;
+            opacity: 1;
+        }
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            pointer-events: auto;
+        }
+        .carousel-arrow.left {
+            left: 16px;
+        }
+        .carousel-arrow.right {
+            right: 16px;
+        }
+        .carousel-arrow:hover {
+            background: rgba(0,0,0,0.9);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .carousel-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        .carousel-dots {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .dot.active {
+            background: var(--black);
+        }
+
+        .master-info {
+            padding: 25px;
+        }
+
+        .master-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .master-specialty {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .master-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #ffd700;
+        }
+
+        .master-location {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .master-languages {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .service-tags-display {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+        }
+
+        .tag-display {
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        /* Service tag colors - Purple, Blue, Pink palette */
+        .tag-display[data-service="manicure"] { background: #8B5CF6; } /* Purple */
+        .tag-display[data-service="pedicure"] { background: #A855F7; } /* Light Purple */
+        .tag-display[data-service="lips"] { background: #EC4899; } /* Hot Pink */
+        .tag-display[data-service="hair"] { background: #6366F1; } /* Indigo Blue */
+        .tag-display[data-service="brows"] { background: #F472B6; } /* Pink */
+        .tag-display[data-service="lash"] { background: #7C3AED; } /* Deep Purple */
+        .tag-display[data-service="permanent_makeup"] { background: #DB2777; } /* Rose Pink */
+        .tag-display[data-service="podology"] { background: #3B82F6; } /* Blue */
+        .tag-display[data-service="trichology"] { background: #8B5A9F; } /* Purple Gray */
+        .tag-display[data-service="keratin_botox"] { background: #C084FC; } /* Light Violet */
+        .tag-display[data-service="botox"] { background: #5B21B6; } /* Dark Purple */
+        .tag-display[data-service="facial"] { background: #1D4ED8; } /* Deep Blue */
+        .tag-display[data-service="makeup"] { background: #BE185D; } /* Dark Pink */
+        .tag-display[data-service="extensions"] { background: #F59E0B; } /* Amber (complementary) */
+        .tag-display[data-service="laser"] { background: #1E40AF; } /* Navy Blue */
+        .tag-display[data-service="massage"] { background: #9333EA; } /* Violet */
+
+        .service-filter-container {
+            position: relative;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .location-filter-container {
+            position: relative;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .language-filter-container {
+            position: relative;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .filter-label {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .filter-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .service-filter-options,
+        .location-filter-options,
+        .language-filter-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            z-index: 1000;
+            max-height: 350px;
+            overflow-y: auto;
+            display: none;
+            padding: 15px;
+            margin-top: 5px;
+        }
+
+        .service-filter-container:hover .service-filter-options,
+        .service-filter-options:hover,
+        .location-filter-container:hover .location-filter-options,
+        .location-filter-options:hover,
+        .language-filter-container:hover .language-filter-options,
+        .language-filter-options:hover {
+            display: block;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            border: 1px solid transparent;
+        }
+
+        .filter-option:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .filter-option input[type="checkbox"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+            accent-color: #667eea;
+        }
+
+        .filter-option:has(input:checked) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+
+        .master-price {
+            font-size: 14px;
+            color: var(--black);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 2% auto;
+            padding: 22px;
+            border-radius: 20px;
+            width: 72%;
+            max-width: 400px;
+            max-height: 90vh;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow-y: auto;
+        }
+
+        .close {
+            color: var(--text-light);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+        }
+
+        .close:hover {
+            color: var(--black);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">LXGLAM</div>
+                <nav class="nav-links">
+                    <a href="#services">Services</a>
+                    <a href="#apply">Apply</a>
+                    <a href="#about">About</a>
+                    <a href="admin.html" class="admin-link">Admin</a>
+                </nav>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#services">Services</a>
+            <a href="#salons">Salons</a>
+            <a href="#about">About</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-iframe">
+            <iframe src='https://my.spline.design/ai-eRYtsnvCbqALAsHEHvrnUsEM/' frameborder='0' width='100%' height='100%'></iframe>
+        </div>
+        <div class="hero-text-below">
+            <h1 class="hero-title">Your Beauty Airbnb!</h1>
+            <p class="hero-description">Only top tier beauty masters located in Lisbon. Soon Dubai, DXBGLAM and New York, NYCGLAM.</p>
+        </div>
+        <div class="scroll-indicator">Scroll to Book</div>
+    </section>
+
+    <!-- Beauty Brands Carousel -->
+    <section class="brands-section">
+        <div class="container">
+            <h2 class="brands-title">Trusted by Top Beauty Brands</h2>
+            <div class="brands-carousel">
+                <div class="brands-track">
+                    <!-- First set of brands -->
+                    <div class="brand-item">
+                        <img src="https://cdn.worldvectorlogo.com/logos/anastasia-beverly-hills-logo.svg" alt="Anastasia Beverly Hills">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://vectorseek.com/wp-content/uploads/2023/08/Charlotte-Tilbury-Logo-Vector.svg-.png" alt="Charlotte Tilbury">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://logos-world.net/wp-content/uploads/2023/01/MAC-Cosmetics-Logo.png" alt="MAC Cosmetics">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://www.facefactsbakewell.co.uk/wp-content/uploads/2020/04/cnd-shellac.png" alt="CND Shellac">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://i0.wp.com/shampooguide.dk/wp-content/uploads/2023/02/Davines_Logo.webp?fit=743%2C200&ssl=1" alt="Davines">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://vectorseek.com/wp-content/uploads/2023/11/Bobbi-Brown-Logo-Vector.svg-.png" alt="Bobbi Brown">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://freepngimg.com/download/chanel/24140-8-chanel-logo-image.png" alt="Chanel Beauty">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://logos-world.net/wp-content/uploads/2020/12/Kerastase-Logo.png" alt="Kérastase">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://logos-world.net/wp-content/uploads/2020/04/LOreal-Logo.png" alt="L'Oréal Professionnel">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://wp.logos-download.com/wp-content/uploads/2016/05/NARS_logo_black-700x331.png" alt="NARS">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://1000logos.net/wp-content/uploads/2021/04/Redken-logo.png" alt="Redken">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://cdn.brandfetch.io/idZYm53IFT/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" alt="Armani Beauty">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://iconlogovector.com/uploads/images/2025/03/lg-67d67918f10df-Wella-Professionals.webp" alt="Wella Professionals">
+                    </div>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="brand-item">
+                        <img src="https://cdn.worldvectorlogo.com/logos/anastasia-beverly-hills-logo.svg" alt="Anastasia Beverly Hills">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://vectorseek.com/wp-content/uploads/2023/08/Charlotte-Tilbury-Logo-Vector.svg-.png" alt="Charlotte Tilbury">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://logos-world.net/wp-content/uploads/2023/01/MAC-Cosmetics-Logo.png" alt="MAC Cosmetics">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://www.facefactsbakewell.co.uk/wp-content/uploads/2020/04/cnd-shellac.png" alt="CND Shellac">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://i0.wp.com/shampooguide.dk/wp-content/uploads/2023/02/Davines_Logo.webp?fit=743%2C200&ssl=1" alt="Davines">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://vectorseek.com/wp-content/uploads/2023/11/Bobbi-Brown-Logo-Vector.svg-.png" alt="Bobbi Brown">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://freepngimg.com/download/chanel/24140-8-chanel-logo-image.png" alt="Chanel Beauty">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://logos-world.net/wp-content/uploads/2020/12/Kerastase-Logo.png" alt="Kérastase">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://logos-world.net/wp-content/uploads/2020/04/LOreal-Logo.png" alt="L'Oréal Professionnel">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://wp.logos-download.com/wp-content/uploads/2016/05/NARS_logo_black-700x331.png" alt="NARS">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://1000logos.net/wp-content/uploads/2021/04/Redken-logo.png" alt="Redken">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://cdn.brandfetch.io/idZYm53IFT/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" alt="Armani Beauty">
+                    </div>
+                    <div class="brand-item">
+                        <img src="https://iconlogovector.com/uploads/images/2025/03/lg-67d67918f10df-Wella-Professionals.webp" alt="Wella Professionals">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <h2 class="section-title">Find Your Perfect Beauty Master</h2>
+            
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <div class="filter-row">
+                    <div class="filter-dropdown service-filter-container">
+                        <label class="filter-label">All Glams!</label>
+                        <div class="filter-select-placeholder">Select Services</div>
+                        <div class="service-filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="manicure" data-filter="service"> Manicure
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="pedicure" data-filter="service"> Pedicure
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="lips" data-filter="service"> Lips
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="hair" data-filter="service"> Hair
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="brows" data-filter="service"> Brows
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="lash" data-filter="service"> Lash
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="permanent_makeup" data-filter="service"> Permanent Make Up
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="podology" data-filter="service"> Podology
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="trichology" data-filter="service"> Trichology
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="keratin_botox" data-filter="service"> Keratin/Botox
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="botox" data-filter="service"> Botox
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="facial" data-filter="service"> Facial
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="makeup" data-filter="service"> Make Up
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="extensions" data-filter="service"> Extensions
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="laser" data-filter="service"> Laser
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="massage" data-filter="service"> Massage
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-dropdown location-filter-container">
+                        <label class="filter-label">Location</label>
+                        <div class="filter-select-placeholder">Select Location</div>
+                        <div class="location-filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="lisbon" data-filter="location"> Lisbon
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="oeiras" data-filter="location"> Oeiras
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="cascais" data-filter="location"> Cascais
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="sintra" data-filter="location"> Sintra
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="seixal" data-filter="location"> Seixal
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="amadora" data-filter="location"> Amadora
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="odivelas" data-filter="location"> Odivelas
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="setubal" data-filter="location"> Setúbal
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="almada" data-filter="location"> Almada
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="montijo" data-filter="location"> Montijo
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="estoril" data-filter="location"> Estoril
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="costa-da-caparica" data-filter="location"> Costa da Caparica
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-dropdown language-filter-container">
+                        <label class="filter-label">Language</label>
+                        <div class="filter-select-placeholder">Select Language</div>
+                        <div class="language-filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="portuguese" data-filter="language"> Portuguese
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="english" data-filter="language"> English
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="ukrainian" data-filter="language"> Ukrainian
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="russian" data-filter="language"> Russian
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="filter-actions">
+                        <button class="clear-filters-btn" onclick="clearAllFilters()">
+                            <span>Clear All</span>
+                        </button>
+                        <div class="results-count" id="resultsCount">
+                            <span id="resultsNumber">8</span> masters found
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Masters Grid -->
+            <div class="masters-grid" id="mastersGrid">
+                <!-- Masters will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form id="bookingForm">
+                <div class="form-group">
+                     <label for="clientName">Name <span style="color: #e74c3c;">*</span></label>
+                     <input type="text" id="clientName" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                     <label for="bookingDateTime">Preferred Date & Time <span style="color: #666; font-weight: normal;">(Optional / Flexible)</span></label>
+                     <input type="datetime-local" id="bookingDateTime" placeholder="Select your preferred date and time">
+                </div>
+                
+                <div class="form-group">
+                     <label for="clientPhone">Phone Number <span style="color: #e74c3c;">*</span></label>
+                     <input type="tel" id="clientPhone" placeholder="Enter your phone number" required>
+                </div>
+                  
+                
+                <div class="form-group">
+                     <label for="serviceRequested">Service Requested</label>
+                     <textarea id="serviceRequested" placeholder="Describe the service you're looking for..." rows="3"></textarea>
+                </div>
+                
+                  <div class="form-group">
+                     <label for="additionalNotes">Additional Notes <span style="color: #666; font-weight: normal;">(Optional)</span></label>
+                     <textarea id="additionalNotes" placeholder="Any additional information or special requests..." rows="3"></textarea>
+                  </div>
+                  
+                 <button type="submit" class="btn">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Apply to LXGLAM -->
+    <section class="featured-section" id="apply">
+        <div class="container">
+            <h2 class="section-title">Join Our Elite Team</h2>
+            <div class="apply-content">
+                <div class="apply-button-container">
+                    <button class="apply-btn" onclick="openApplicationModal()">Apply to LXGLAM</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeApplicationModal()">&times;</span>
+            <h2>Apply to LXGLAM</h2>
+            <form id="applicationForm">
+                <div class="form-group">
+                    <label for="applicantName">Full Name *</label>
+                    <input type="text" id="applicantName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantPhone">Phone Number *</label>
+                    <input type="tel" id="applicantPhone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantEmail">Email Address *</label>
+                    <input type="email" id="applicantEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantSpecialty">Beauty Specialty *</label>
+                    <select id="applicantSpecialty" required>
+                        <option value="">Select your specialty</option>
+                        <option value="Hair Styling & Coloring">Hair Styling & Coloring</option>
+                        <option value="Brow & Lash Artistry">Brow & Lash Artistry</option>
+                        <option value="Manicure & Pedicure">Manicure & Pedicure</option>
+                        <option value="Facial & Aesthetic Treatments">Facial & Aesthetic Treatments</option>
+                        <option value="Permanent Makeup">Permanent Makeup</option>
+                        <option value="Massage Therapy">Massage Therapy</option>
+                        <option value="Laser Treatments">Laser Treatments</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantExperience">Years of Experience *</label>
+                    <select id="applicantExperience" required>
+                        <option value="">Select experience level</option>
+                        <option value="0-1 years">0-1 years</option>
+                        <option value="2-3 years">2-3 years</option>
+                        <option value="4-5 years">4-5 years</option>
+                        <option value="6-10 years">6-10 years</option>
+                        <option value="10+ years">10+ years</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantLanguages">Languages Spoken</label>
+                    <input type="text" id="applicantLanguages" placeholder="e.g., English, Portuguese, Russian, Ukrainian">
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantLocation">Preferred Location</label>
+                    <select id="applicantLocation">
+                        <option value="">Select location</option>
+                        <option value="Lisbon">Lisbon</option>
+                        <option value="Cascais">Cascais</option>
+                        <option value="Sintra">Sintra</option>
+                        <option value="Oeiras">Oeiras</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantInstagram">Instagram Handle</label>
+                    <input type="text" id="applicantInstagram" placeholder="@your_instagram">
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantPortfolio">Portfolio/Work Examples</label>
+                    <textarea id="applicantPortfolio" rows="2" placeholder="Share links to your work, portfolio, or describe your experience..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantMotivation">Why do you want to join LXGLAM?</label>
+                    <textarea id="applicantMotivation" rows="2" placeholder="Tell us about your passion for beauty and why you'd be a great fit..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Load masters data from localStorage (synced with admin system)
+        function loadMastersData() {
+            const saved = localStorage.getItem('lxglamMasters');
+            if (saved) {
+                return JSON.parse(saved);
+            } else {
+                // Fallback to default data if no admin data exists
+                return [
+            {
+                id: 1,
+                name: "Julya",
+                specialty: "Brow & Lash Master · Permanent Makeup & Beauty Expert",
+                services: ["Brow & Lash Master · Permanent Makeup & Beauty Expert"],
+                serviceTags: ["brows", "lash", "permanent_makeup"],
+                location: "lisbon",
+                languages: ["russian", "english"],
+                nationality: "russian",
+                priceRange: "budget",
+                rating: 5,
+                instagram: "@julya_brows_lisbon"
+            },
+            {
+                id: 2,
+                name: "Natalia",
+                specialty: "Manicure & Pedicure Master · Podology Specialist & Creative Nail Design",
+                services: ["Manicure, Pedicure & Advanced Foot Care"],
+                serviceTags: ["manicure", "pedicure", "podology"],
+                location: "lisbon",
+                languages: ["russian", "ukrainian"],
+                nationality: "russian",
+                priceRange: "mid",
+                rating: 5,
+                instagram: "@natalia_nails_lisbon"
+            },
+            {
+                id: 3,
+                name: "Kseniya",
+                specialty: "Hair Transformation & Coloring Master · Balayage, AirTouch & Complex Highlights",
+                services: ["Balayage, Highlights & Advanced Hair Treatments"],
+                serviceTags: ["hair"],
+                location: "lisbon",
+                languages: ["ukrainian", "english", "russian", "portuguese"],
+                nationality: "ukrainian",
+                priceRange: "premium",
+                rating: 5,
+                instagram: "@kseniya_hair_lisbon"
+            },
+            {
+                id: 4,
+                name: "Dmytro",
+                specialty: "Haircut, Styling & Coloring Master · Total Blonde & Hair Nourishing Treatments",
+                services: ["Haircut, Styling & Coloring Master · Total Blonde & Hair Nourishing Treatments"],
+                serviceTags: ["hair"],
+                location: "lisbon",
+                languages: ["ukrainian", "english", "russian", "portuguese"],
+                nationality: "ukrainian",
+                priceRange: "mid",
+                rating: 4,
+                instagram: "@dmytro_hair_lisbon"
+            },
+            {
+                id: 5,
+                name: "Kristina",
+                specialty: "Facial & Aesthetic Master · Botox, Fillers & Skin Transformation",
+                services: ["Botox, Fillers, Lip Enhancement & Advanced Techniques"],
+                serviceTags: ["facial", "botox", "lips"],
+                location: "lisbon",
+                languages: ["ukrainian", "polish", "russian", "english"],
+                nationality: "ukrainian",
+                priceRange: "premium",
+                rating: 5,
+                instagram: "@kristina_aesthetic_lisbon"
+            },
+            {
+                id: 6,
+                name: "Anna",
+                specialty: "Keratin & Hair Botox Master · Trichology Expert",
+                services: ["Keratin & Hair Botox Treatments", "Trichology Consultation"],
+                serviceTags: ["hair", "keratin_botox", "trichology"],
+                location: "lisbon",
+                languages: ["ukrainian", "english", "russian", "portuguese"],
+                nationality: "ukrainian",
+                priceRange: "luxury",
+                rating: 4,
+                instagram: "@anna_hair_lisbon"
+            },
+            {
+                id: 7,
+                name: "Kayo",
+                specialty: "Hair & Beauty Master · Haircuts, Coloring, Harmonizing, Extensions & Makeup Expertise",
+                services: ["Haircuts, Coloring, Harmonizing, Extensions & Makeup"],
+                serviceTags: ["hair", "extensions", "makeup"],
+                location: "lisbon",
+                languages: ["english", "portuguese", "brazilian"],
+                nationality: "brazilian",
+                priceRange: "luxury",
+                rating: 5,
+                instagram: "@kayo_hair_lisbon"
+            },
+            {
+                id: 8,
+                name: "Patricia Alves",
+                specialty: "Hair & Face Specialist",
+                services: ["hair", "face"],
+                serviceTags: ["hair", "facial"],
+                location: "oeiras",
+                languages: ["portuguese", "ukrainian"],
+                nationality: "portuguese",
+                priceRange: "mid",
+                rating: 4,
+                instagram: "@patricia_hair_lisbon"
+            }
+        ];
+            }
+        }
+
+        // Load masters data
+        const masters = loadMastersData();
+
+        let currentFilters = {
+            service: [],
+            location: [],
+            language: [],
+            nationality: 'all'
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Refresh masters data from localStorage
+            const updatedMasters = loadMastersData();
+            masters.length = 0;
+            masters.push(...updatedMasters);
+            
+            renderMasters();
+            setupFilters();
+            setupBookingForm();
+            setupApplicationForm();
+            setupMobileMenu();
+        });
+
+        // Refresh data when user returns from admin (focus event)
+        window.addEventListener('focus', function() {
+            const updatedMasters = loadMastersData();
+            masters.length = 0;
+            masters.push(...updatedMasters);
+            renderMasters();
+        });
+
+        // Also refresh when page becomes visible (for mobile)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                const updatedMasters = loadMastersData();
+                masters.length = 0;
+                masters.push(...updatedMasters);
+                renderMasters();
+            }
+        });
+
+        // Mobile menu toggle
+        function setupMobileMenu() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.style.display = 'none';
+                }
+            });
+        }
+
+        // Render masters based on current filters
+        function renderMasters() {
+            const mastersGrid = document.getElementById('mastersGrid');
+            const resultsNumber = document.getElementById('resultsNumber');
+            
+            const filteredMasters = masters.filter(master => {
+                return (
+                    (currentFilters.service.length === 0 || (master.serviceTags && currentFilters.service.some(tag => master.serviceTags.includes(tag)))) &&
+                    (currentFilters.location.length === 0 || currentFilters.location.includes(master.location)) &&
+                    (currentFilters.language.length === 0 || currentFilters.language.some(lang => master.languages.includes(lang))) &&
+                    (currentFilters.nationality === 'all' || master.nationality === currentFilters.nationality)
+                );
+            });
+
+            // Update results counter
+            resultsNumber.textContent = filteredMasters.length;
+
+            mastersGrid.innerHTML = filteredMasters.map(master => {
+                // Dynamic carousel images from admin photos
+                let photoArea = '';
+                if (master.photos && master.photos.length > 0) {
+                    // Use photos from admin system
+                    photoArea = `
+                    <div class="carousel" id="carousel-${master.id}">
+                        <div class="carousel-track">
+                            ${master.photos.map((photo, index) => 
+                                `<img src="${photo.data}" alt="${master.name}'s Work ${index + 1}" class="carousel-img ${index === 0 ? 'active' : ''}">`
+                            ).join('')}
+                        </div>`;
+                } else {
+                    // Fallback to default images if no photos uploaded
+                    photoArea = `
+                    <div class="carousel" id="carousel-${master.id}">
+                        <div class="carousel-track">
+                            <img src="https://images.unsplash.com/photo-1541701494587-c122ded686a5?auto=format&fit=crop&w=400&h=400" alt="Portfolio 1" class="carousel-img active">
+                            <img src="https://images.unsplash.com/photo-1557683311-eac922347aa1?auto=format&fit=crop&w=400&h=400" alt="Portfolio 2" class="carousel-img">
+                            <img src="https://images.unsplash.com/photo-1557683304-673a23048d34?auto=format&fit=crop&w=400&h=400" alt="Portfolio 3" class="carousel-img">
+                            <img src="https://images.unsplash.com/photo-1557683316-973673b475926?auto=format&fit=crop&w=400&h=400" alt="Portfolio 4" class="carousel-img">
+                            <img src="https://images.unsplash.com/photo-1557683304-673a23048d34?auto=format&fit=crop&w=400&h=400" alt="Portfolio 5" class="carousel-img">
+                        </div>`;
+                }
+                // Generate dynamic dots based on number of photos
+                const photoCount = master.photos ? master.photos.length : 5;
+                const dots = Array.from({length: photoCount}, (_, i) => 
+                    `<span class="dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation();goToSlide(${master.id},${i})"></span>`
+                ).join('');
+
+                photoArea += `
+                        <button class="carousel-arrow left" onclick="event.stopPropagation(); event.preventDefault(); console.log('Left arrow clicked for master', ${master.id}); prevSlide(${master.id}); return false;" title="Previous image">‹</button>
+                        <button class="carousel-arrow right" onclick="event.stopPropagation(); event.preventDefault(); console.log('Right arrow clicked for master', ${master.id}); nextSlide(${master.id}); return false;" title="Next image">›</button>
+                        <div class="carousel-dots">
+                            ${dots}
+                        </div>
+                    </div>`;
+                return `
+                <div class="master-card">
+                    ${photoArea}
+                    <div class="master-info">
+                        <h3 class="master-name">${master.name}</h3>
+                        <p class="master-specialty">${master.specialty}</p>
+                        <div class="service-tags-display">
+                            ${(master.serviceTags || []).map(tag => `<span class="tag-display" data-service="${tag}">${tag}</span>`).join('')}
+                        </div>
+                        <p class="master-location">📍 ${master.location.charAt(0).toUpperCase() + master.location.slice(1)}</p>
+                        <p class="master-languages">🗣️ ${master.languages.join(', ')}</p>
+                        <button class="glam-button" onclick="event.stopPropagation(); openBookingModal('${master.name}', '${master.services.join(', ')}')">Let's Glam!</button>
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
+
+        // Setup filter functionality
+        function setupFilters() {
+            document.querySelectorAll('.filter-select').forEach(select => {
+                select.addEventListener('change', function() {
+                    const filterType = this.dataset.filter;
+                    const filterValue = this.value;
+
+                    // Update current filters
+                    currentFilters[filterType] = filterValue;
+
+                    // Re-render masters
+                    renderMasters();
+                });
+            });
+
+            // Setup service tag checkbox listeners
+            document.querySelectorAll('.service-filter-options .filter-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const serviceTag = this.value;
+                    
+                    if (this.checked) {
+                        if (!currentFilters.service.includes(serviceTag)) {
+                            currentFilters.service.push(serviceTag);
+                        }
+                    } else {
+                        currentFilters.service = currentFilters.service.filter(tag => tag !== serviceTag);
+                    }
+
+                    // Re-render masters
+                    renderMasters();
+                });
+            });
+
+            // Setup location checkbox listeners
+            document.querySelectorAll('.location-filter-options .filter-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const location = this.value;
+                    
+                    if (this.checked) {
+                        if (!currentFilters.location.includes(location)) {
+                            currentFilters.location.push(location);
+                        }
+                    } else {
+                        currentFilters.location = currentFilters.location.filter(loc => loc !== location);
+                    }
+
+                    // Re-render masters
+                    renderMasters();
+                });
+            });
+
+            // Setup language checkbox listeners
+            document.querySelectorAll('.language-filter-options .filter-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const language = this.value;
+                    
+                    if (this.checked) {
+                        if (!currentFilters.language.includes(language)) {
+                            currentFilters.language.push(language);
+                        }
+                    } else {
+                        currentFilters.language = currentFilters.language.filter(lang => lang !== language);
+                    }
+
+                    // Re-render masters
+                    renderMasters();
+                });
+            });
+
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            document.querySelectorAll('.filter-select').forEach(select => {
+                select.value = 'all';
+            });
+            
+            // Clear all checkboxes
+            document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            currentFilters = {
+                service: [],
+                location: [],
+                language: [],
+                nationality: 'all'
+            };
+
+            renderMasters();
+        }
+
+        // Setup booking form
+        function setupBookingForm() {
+            document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                     master: window.selectedMaster || 'LXGLAM Beauty Master',
+                    name: document.getElementById('clientName').value,
+                     dateTime: document.getElementById('bookingDateTime').value,
+                     phone: document.getElementById('clientPhone').value,
+                     serviceRequested: document.getElementById('serviceRequested').value,
+                     additionalNotes: document.getElementById('additionalNotes').value
+                 };
+
+                 // Validate required fields
+                 if (!formData.name || !formData.phone) {
+                     alert('Please fill in all required fields (Name and Phone Number).');
+                     return;
+                 }
+
+                // Send to Telegram Bot
+                const message = `🎯 *New LXGLAM Booking Request*
+
+👤 *Client:* ${formData.name}
+📞 *Phone:* ${formData.phone}
+👨‍💼 *Master:* ${formData.master}
+💅 *Service:* ${formData.serviceRequested || 'Not specified'}
+📅 *Date & Time:* ${formData.dateTime ? new Date(formData.dateTime).toLocaleString() : 'Flexible'}
+📝 *Notes:* ${formData.additionalNotes || 'None'}
+
+Please contact the client to confirm the appointment.`;
+
+                const botToken = '8466676132:AAHi1-a_KbTrk1KRP90I1iT6Ip4UBLRxUmg';
+                const chatId = '5268028095';
+
+                try {
+                    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                            parse_mode: 'Markdown'
+                        })
+                    });
+
+                    if (response.ok) {
+                        alert(`✅ Booking request sent successfully!\n\nMaster: ${formData.master}\nClient: ${formData.name}\n\nWe'll contact you soon to confirm your appointment.`);
+                        closeModal();
+                        this.reset();
+                    } else {
+                        const errorData = await response.json();
+                        throw new Error(errorData.description || 'Failed to send message to Telegram');
+                    }
+                } catch (error) {
+                    console.error('Error sending to Telegram:', error);
+                    alert(`❌ Error sending booking request: ${error.message}\n\nPlease try again or contact us directly.`);
+                }
+            });
+
+             // Set minimum datetime to now
+             const now = new Date();
+             now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+             document.getElementById('bookingDateTime').min = now.toISOString().slice(0, 16);
+        }
+
+        // Application Modal Functions
+        function openApplicationModal() {
+            document.getElementById('applicationModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeApplicationModal() {
+            document.getElementById('applicationModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Setup Application Form
+        function setupApplicationForm() {
+            document.getElementById('applicationForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('applicantName').value,
+                    phone: document.getElementById('applicantPhone').value,
+                    email: document.getElementById('applicantEmail').value,
+                    specialty: document.getElementById('applicantSpecialty').value,
+                    experience: document.getElementById('applicantExperience').value,
+                    languages: document.getElementById('applicantLanguages').value,
+                    location: document.getElementById('applicantLocation').value,
+                    instagram: document.getElementById('applicantInstagram').value,
+                    portfolio: document.getElementById('applicantPortfolio').value,
+                    motivation: document.getElementById('applicantMotivation').value
+                };
+
+                // Validate required fields
+                if (!formData.name || !formData.phone || !formData.email || !formData.specialty || !formData.experience) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                // Send application to Telegram Bot
+                const message = `🎯 *New LXGLAM Application*
+
+👤 *Applicant:* ${formData.name}
+📞 *Phone:* ${formData.phone}
+📧 *Email:* ${formData.email}
+💅 *Specialty:* ${formData.specialty}
+⏰ *Experience:* ${formData.experience}
+🗣️ *Languages:* ${formData.languages || 'Not specified'}
+📍 *Location:* ${formData.location || 'Not specified'}
+📱 *Instagram:* ${formData.instagram || 'Not specified'}
+🎨 *Portfolio:* ${formData.portfolio || 'Not specified'}
+💭 *Motivation:* ${formData.motivation || 'Not specified'}
+
+Please review this application and contact the applicant.`;
+
+                const botToken = '8466676132:AAHi1-a_KbTrk1KRP90I1iT6Ip4UBLRxUmg';
+                const chatId = '5268028095';
+
+                try {
+                    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                            parse_mode: 'Markdown'
+                        })
+                    });
+
+                    if (response.ok) {
+                        alert(`✅ Thank you for applying to LXGLAM!\n\nWe have received your application and will contact you soon about the next steps.\n\nGood luck! 🌟`);
+                        closeApplicationModal();
+                        this.reset();
+                    } else {
+                        const errorData = await response.json();
+                        throw new Error(errorData.description || 'Failed to send application to Telegram');
+                    }
+                } catch (error) {
+                    console.error('Error sending application to Telegram:', error);
+                    alert(`❌ Error submitting application: ${error.message}\n\nPlease try again or contact us directly.`);
+                }
+            });
+        }
+
+        // Open booking modal
+        function openBookingModal(masterName, services) {
+            // Store the master name for form submission
+            window.selectedMaster = masterName;
+            document.getElementById('bookingModal').style.display = 'block';
+        }
+
+        // Close booking modal
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        // Scroll to filter section
+        function scrollToBooking() {
+            document.querySelector('.filter-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Carousel logic (add after renderMasters)
+        window.prevSlide = function(id) {
+            console.log('prevSlide called with id:', id);
+            const carousel = document.getElementById(`carousel-${id}`);
+            console.log('carousel element:', carousel);
+            
+            if (!carousel) {
+                console.error('Carousel not found for id:', id);
+                return;
+            }
+            
+            const imgs = carousel.querySelectorAll('.carousel-img');
+            const dots = carousel.querySelectorAll('.dot');
+            console.log('Found images:', imgs.length, 'Found dots:', dots.length);
+            
+            let idx = Array.from(imgs).findIndex(img => img.classList.contains('active'));
+            console.log('Current active index:', idx);
+            
+            if (idx === -1) {
+                console.error('No active image found');
+                return;
+            }
+            
+            // Remove active from current
+            imgs[idx].classList.remove('active');
+            dots[idx].classList.remove('active');
+            
+            // Calculate previous index
+            idx = (idx - 1 + imgs.length) % imgs.length;
+            console.log('New index:', idx);
+            
+            // Add active to new
+            imgs[idx].classList.add('active');
+            dots[idx].classList.add('active');
+            
+            console.log('prevSlide completed successfully');
+        };
+        window.nextSlide = function(id) {
+            console.log('nextSlide called with id:', id);
+            const carousel = document.getElementById(`carousel-${id}`);
+            console.log('carousel element:', carousel);
+            
+            if (!carousel) {
+                console.error('Carousel not found for id:', id);
+                return;
+            }
+            
+            const imgs = carousel.querySelectorAll('.carousel-img');
+            const dots = carousel.querySelectorAll('.dot');
+            console.log('Found images:', imgs.length, 'Found dots:', dots.length);
+            
+            let idx = Array.from(imgs).findIndex(img => img.classList.contains('active'));
+            console.log('Current active index:', idx);
+            
+            if (idx === -1) {
+                console.error('No active image found');
+                return;
+            }
+            
+            // Remove active from current
+            imgs[idx].classList.remove('active');
+            dots[idx].classList.remove('active');
+            
+            // Calculate next index
+            idx = (idx + 1) % imgs.length;
+            console.log('New index:', idx);
+            
+            // Add active to new
+            imgs[idx].classList.add('active');
+            dots[idx].classList.add('active');
+            
+            console.log('nextSlide completed successfully');
+        };
+        window.goToSlide = function(id, n) {
+            console.log('goToSlide called with id:', id, 'slide:', n);
+            const carousel = document.getElementById(`carousel-${id}`);
+            if (!carousel) {
+                console.error('Carousel not found for id:', id);
+                return;
+            }
+            const imgs = carousel.querySelectorAll('.carousel-img');
+            const dots = carousel.querySelectorAll('.dot');
+            if (n >= imgs.length) {
+                console.error('Slide index out of range:', n);
+                return;
+            }
+            imgs.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            imgs[n].classList.add('active');
+            dots[n].classList.add('active');
+        };
+
+        // Swipe/drag support for carousel
+        function enableCarouselSwipe(id) {
+            const carousel = document.getElementById(`carousel-${id}`);
+            if (!carousel) return;
+            
+            // Remove any existing event listeners to prevent duplicates
+            const newCarousel = carousel.cloneNode(true);
+            carousel.parentNode.replaceChild(newCarousel, carousel);
+            
+            const imgs = newCarousel.querySelectorAll('.carousel-img');
+            let startX = 0, endX = 0, isDragging = false;
+
+            // Touch events
+            newCarousel.addEventListener('touchstart', e => {
+                // Don't interfere with arrow clicks
+                if (e.target.classList.contains('carousel-arrow')) return;
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+            newCarousel.addEventListener('touchmove', e => {
+                if (!isDragging) return;
+                endX = e.touches[0].clientX;
+            });
+            newCarousel.addEventListener('touchend', e => {
+                if (!isDragging) return;
+                isDragging = false;
+                if (startX - endX > 40) nextSlide(id);
+                else if (endX - startX > 40) prevSlide(id);
+            });
+
+            // Mouse drag events
+            let mouseDown = false, mouseStart = 0, mouseEnd = 0;
+            newCarousel.addEventListener('mousedown', e => {
+                // Don't interfere with arrow clicks
+                if (e.target.classList.contains('carousel-arrow')) return;
+                mouseDown = true;
+                mouseStart = e.clientX;
+            });
+            newCarousel.addEventListener('mousemove', e => {
+                if (!mouseDown) return;
+                mouseEnd = e.clientX;
+            });
+            newCarousel.addEventListener('mouseup', e => {
+                if (!mouseDown) return;
+                mouseDown = false;
+                if (mouseStart - mouseEnd > 40) nextSlide(id);
+                else if (mouseEnd - mouseStart > 40) prevSlide(id);
+            });
+            newCarousel.addEventListener('mouseleave', e => { mouseDown = false; });
+        }
+
+        // Enable swipe for all carousels after rendering
+        function enableAllCarousels() {
+            console.log('Enabling carousels...');
+            document.querySelectorAll('.carousel').forEach(carousel => {
+                const id = carousel.id.replace('carousel-', '');
+                console.log('Enabling carousel for master:', id);
+                enableCarouselSwipe(id);
+            });
+            console.log('All carousels enabled');
+        }
+        // Call after renderMasters
+        const origRenderMasters = renderMasters;
+        renderMasters = function() {
+            origRenderMasters();
+            enableAllCarousels();
+        };
+    </script>
+</body>
+</html>

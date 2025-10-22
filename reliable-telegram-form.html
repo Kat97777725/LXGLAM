@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LXGLAM - Reliable Telegram Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; }
+        button:disabled { background: #6c757d; cursor: not-allowed; }
+        .success { color: green; margin-top: 10px; padding: 10px; background: #d4edda; border-radius: 4px; }
+        .error { color: red; margin-top: 10px; padding: 10px; background: #f8d7da; border-radius: 4px; }
+        .info { background: #e7f3ff; padding: 15px; border-radius: 4px; margin: 20px 0; }
+        .warning { background: #fff3cd; padding: 15px; border-radius: 4px; margin: 20px 0; border: 1px solid #ffeaa7; }
+    </style>
+</head>
+<body>
+    <h1>🤖 LXGLAM Telegram Booking Form</h1>
+    
+    <div class="info">
+        <h3>✅ Your Bot is Ready!</h3>
+        <p><strong>Chat ID:</strong> 5268028095</p>
+        <p><strong>Bot:</strong> @lxglambot</p>
+        <p><strong>Status:</strong> Ready to receive booking requests</p>
+    </div>
+    
+    <div class="warning">
+        <h3>📱 How to Use:</h3>
+        <p>1. Fill out the form below</p>
+        <p>2. Click "Send Booking Request"</p>
+        <p>3. Copy the generated message</p>
+        <p>4. Send it manually to @lxglambot in Telegram</p>
+    </div>
+    
+    <form id="telegramForm">
+        <div class="form-group">
+            <label for="name">Client Name *</label>
+            <input type="text" id="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="master">Beauty Master</label>
+            <select id="master">
+                <option value="Julya">Julya - Brow & Lash Master</option>
+                <option value="Natalia">Natalia - Manicure & Pedicure Master</option>
+                <option value="Kseniya">Kseniya - Hair Transformation Master</option>
+                <option value="Dmytro">Dmytro - Haircut & Styling Master</option>
+                <option value="Kristina">Kristina - Facial & Aesthetic Master</option>
+                <option value="Anna">Anna - Keratin & Hair Botox Master</option>
+                <option value="Kayo">Kayo - Hair & Beauty Master</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="service">Service Requested</label>
+            <input type="text" id="service" placeholder="e.g., Hair coloring, Manicure, etc.">
+        </div>
+        
+        <div class="form-group">
+            <label for="datetime">Preferred Date & Time</label>
+            <input type="datetime-local" id="datetime">
+        </div>
+        
+        <div class="form-group">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" rows="3" placeholder="Any special requests or notes..."></textarea>
+        </div>
+        
+        <button type="submit">Generate Telegram Message</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <div id="messageOutput" style="display: none; margin-top: 20px;">
+        <h3>📱 Copy this message and send it to @lxglambot:</h3>
+        <textarea id="generatedMessage" rows="10" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: monospace;"></textarea>
+        <button onclick="copyMessage()" style="margin-top: 10px;">Copy Message</button>
+        <button onclick="openTelegram()" style="margin-top: 10px; margin-left: 10px;">Open Telegram</button>
+    </div>
+
+    <script>
+        document.getElementById('telegramForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                master: document.getElementById('master').value,
+                service: document.getElementById('service').value,
+                datetime: document.getElementById('datetime').value,
+                notes: document.getElementById('notes').value
+            };
+            
+            // Generate the message
+            const message = `🎯 *New LXGLAM Booking Request*
+
+👤 *Client:* ${formData.name}
+📞 *Phone:* ${formData.phone}
+👨‍💼 *Master:* ${formData.master}
+💅 *Service:* ${formData.service || 'Not specified'}
+📅 *Date & Time:* ${formData.datetime ? new Date(formData.datetime).toLocaleString() : 'Flexible'}
+📝 *Notes:* ${formData.notes || 'None'}
+
+Please contact the client to confirm the appointment.`;
+
+            // Show the message
+            document.getElementById('generatedMessage').value = message;
+            document.getElementById('messageOutput').style.display = 'block';
+            document.getElementById('result').innerHTML = '<div class="success">✅ Message generated! Copy and send it to @lxglambot in Telegram.</div>';
+            
+            // Scroll to the message
+            document.getElementById('messageOutput').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        function copyMessage() {
+            const messageText = document.getElementById('generatedMessage');
+            messageText.select();
+            document.execCommand('copy');
+            alert('Message copied to clipboard! Now paste it in Telegram.');
+        }
+        
+        function openTelegram() {
+            window.open('https://t.me/lxglambot', '_blank');
+        }
+    </script>
+</body>
+</html>

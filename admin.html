@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXGLAM Admin - Master Management</title>
+    <style>
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --primary: #000000;
+            --secondary: #f8f8f8;
+            --accent: #667eea;
+            --text-light: #666;
+            --border: #e0e0e0;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--secondary);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .admin-header {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .admin-header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .admin-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: var(--white);
+            border: 2px solid var(--border);
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .admin-section {
+            display: none;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--black);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .photo-upload {
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-upload:hover {
+            border-color: var(--accent);
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .photo-upload.dragover {
+            border-color: var(--accent);
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .photo-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .photo-remove {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tag-item {
+            background: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tag-remove {
+            background: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--black);
+            border: 2px solid var(--border);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+        }
+
+        .masters-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .master-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .master-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .master-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .master-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .master-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .master-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-weight: 500;
+        }
+
+        .service-tags-display {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .tag-display {
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        /* Service tag colors - Purple, Blue, Pink palette */
+        .tag-display[data-service="manicure"] { background: #8B5CF6; } /* Purple */
+        .tag-display[data-service="pedicure"] { background: #A855F7; } /* Light Purple */
+        .tag-display[data-service="lips"] { background: #EC4899; } /* Hot Pink */
+        .tag-display[data-service="hair"] { background: #6366F1; } /* Indigo Blue */
+        .tag-display[data-service="brows"] { background: #F472B6; } /* Pink */
+        .tag-display[data-service="lash"] { background: #7C3AED; } /* Deep Purple */
+        .tag-display[data-service="permanent_makeup"] { background: #DB2777; } /* Rose Pink */
+        .tag-display[data-service="podology"] { background: #3B82F6; } /* Blue */
+        .tag-display[data-service="trichology"] { background: #8B5A9F; } /* Purple Gray */
+        .tag-display[data-service="keratin_botox"] { background: #C084FC; } /* Light Violet */
+        .tag-display[data-service="botox"] { background: #5B21B6; } /* Dark Purple */
+        .tag-display[data-service="facial"] { background: #1D4ED8; } /* Deep Blue */
+        .tag-display[data-service="makeup"] { background: #BE185D; } /* Dark Pink */
+        .tag-display[data-service="extensions"] { background: #F59E0B; } /* Amber (complementary) */
+        .tag-display[data-service="laser"] { background: #1E40AF; } /* Navy Blue */
+        .tag-display[data-service="massage"] { background: #9333EA; } /* Violet */
+
+        .service-tag-selector {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .tag-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tag-option {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+        .tag-option:hover {
+            background: #f8f9fa;
+            border-color: var(--accent);
+        }
+
+        .tag-option input[type="checkbox"] {
+            margin-right: 8px;
+            transform: scale(1.1);
+        }
+
+        .tag-option:has(input:checked) {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .admin-nav {
+                flex-direction: column;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .master-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Admin Header -->
+        <div class="admin-header">
+            <h1>LXGLAM Admin</h1>
+            <p>Master Management System</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="admin-nav">
+            <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+            <button class="nav-btn" data-section="masters">Masters</button>
+            <button class="nav-btn" data-section="add-master">Add Master</button>
+            <button class="nav-btn" data-section="settings">Settings</button>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="admin-section active" id="dashboard">
+            <h2 class="section-title">Dashboard</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalMasters">0</div>
+                    <div class="stat-label">Total Masters</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalServices">0</div>
+                    <div class="stat-label">Services Offered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalLocations">0</div>
+                    <div class="stat-label">Locations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalLanguages">0</div>
+                    <div class="stat-label">Languages</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Masters List Section -->
+        <div class="admin-section" id="masters">
+            <h2 class="section-title">All Masters</h2>
+            <div class="masters-list" id="mastersList">
+                <!-- Masters will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Add Master Section -->
+        <div class="admin-section" id="add-master">
+            <h2 class="section-title">Add New Master</h2>
+            
+            <form id="masterForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="masterName">Master Name *</label>
+                        <input type="text" id="masterName" required>
+                    </div>
+                    
+                <div class="form-group">
+                    <label for="masterSpecialty">Specialty *</label>
+                    <input type="text" id="masterSpecialty" required>
+                </div>
+                    
+                    <div class="form-group">
+                        <label for="masterLocation">Location *</label>
+                        <select id="masterLocation" required>
+                            <option value="">Select Location</option>
+                            <option value="lisbon">Lisbon</option>
+                            <option value="cascais">Cascais</option>
+                            <option value="sintra">Sintra</option>
+                            <option value="oeiras">Oeiras</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="masterNationality">Nationality *</label>
+                        <select id="masterNationality" required>
+                            <option value="">Select Nationality</option>
+                            <option value="portuguese">Portuguese</option>
+                            <option value="russian">Russian</option>
+                            <option value="ukrainian">Ukrainian</option>
+                            <option value="brazilian">Brazilian</option>
+                            <option value="polish">Polish</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Languages *</label>
+                        <div class="service-tags" id="languageTagsContainer">
+                            <!-- Language tags will be added here -->
+                        </div>
+                        <select id="addLanguageTag">
+                            <option value="">Add Language</option>
+                            <option value="portuguese">Portuguese</option>
+                            <option value="english">English</option>
+                            <option value="russian">Russian</option>
+                            <option value="ukrainian">Ukrainian</option>
+                            <option value="polish">Polish</option>
+                            <option value="brazilian">Brazilian</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="masterPriceRange">Price Range *</label>
+                        <select id="masterPriceRange" required>
+                            <option value="">Select Price Range</option>
+                            <option value="budget">Budget</option>
+                            <option value="mid">Mid-Range</option>
+                            <option value="premium">Premium</option>
+                            <option value="luxury">Luxury</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="masterRating">Rating *</label>
+                        <select id="masterRating" required>
+                            <option value="">Select Rating</option>
+                            <option value="3">3 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="5">5 Stars</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="masterInstagram">Instagram Handle</label>
+                        <input type="text" id="masterInstagram" placeholder="@username">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="masterServices">Services Description</label>
+                    <textarea id="masterServices" placeholder="Describe the services offered..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Service Tags *</label>
+                    <div class="service-tags" id="serviceTagsContainer">
+                        <!-- Service tags will be added here -->
+                    </div>
+                    <div class="service-tag-selector">
+                        <div class="tag-options">
+                            <label class="tag-option">
+                                <input type="checkbox" value="manicure"> Manicure
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="pedicure"> Pedicure
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="lips"> Lips
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="hair"> Hair
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="brows"> Brows
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="lash"> Lash
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="permanent_makeup"> Permanent Make Up
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="podology"> Podology
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="trichology"> Trichology
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="keratin_botox"> Keratin/Botox
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="botox"> Botox
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="facial"> Facial
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="makeup"> Make Up
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="extensions"> Extensions
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="laser"> Laser
+                            </label>
+                            <label class="tag-option">
+                                <input type="checkbox" value="massage"> Massage
+                            </label>
+                        </div>
+                        <button type="button" id="addSelectedTags" class="btn-secondary">Add Selected Tags</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Portfolio Photos</label>
+                    <div class="photo-upload" id="photoUpload">
+                        <p>Click to upload photos or drag and drop</p>
+                        <input type="file" id="photoInput" multiple accept="image/*" style="display: none;">
+                    </div>
+                    <div class="photo-preview" id="photoPreview">
+                        <!-- Photos will be previewed here -->
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <button type="submit" class="btn">Add Master</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">Reset Form</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="admin-section" id="settings">
+            <h2 class="section-title">System Settings</h2>
+            
+            <div class="form-group">
+                <label>Export Data</label>
+                <button class="btn" onclick="exportData()">Export Masters Data</button>
+            </div>
+            
+            <div class="form-group">
+                <label>Import Data</label>
+                <input type="file" id="importFile" accept=".json">
+                <button class="btn" onclick="importData()">Import Masters Data</button>
+            </div>
+            
+            <div class="form-group">
+                <label>Clear All Data</label>
+                <button class="btn btn-danger" onclick="clearAllData()">Clear All Masters</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Global variables
+        let masters = [];
+        let currentServiceTags = [];
+        let currentLanguageTags = [];
+        let currentPhotos = [];
+        let editingMasterId = null;
+
+        // Initialize admin system
+        document.addEventListener('DOMContentLoaded', function() {
+            loadMasters();
+            setupEventListeners();
+            updateDashboard();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Navigation
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const section = this.getAttribute('data-section');
+                    showSection(section);
+                    
+                    // Update active nav button
+                    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Service tag selection - Add selected tags button
+            document.getElementById('addSelectedTags').addEventListener('click', function() {
+                const checkboxes = document.querySelectorAll('.tag-option input[type="checkbox"]:checked');
+                checkboxes.forEach(checkbox => {
+                    const value = checkbox.value;
+                    if (!currentServiceTags.includes(value)) {
+                        currentServiceTags.push(value);
+                    }
+                    checkbox.checked = false; // Uncheck after adding
+                });
+                updateServiceTagsDisplay();
+            });
+
+
+            // Language tag selection
+            document.getElementById('addLanguageTag').addEventListener('change', function() {
+                const value = this.value;
+                if (value && !currentLanguageTags.includes(value)) {
+                    currentLanguageTags.push(value);
+                    updateLanguageTagsDisplay();
+                }
+                this.value = '';
+            });
+
+            // Photo upload
+            const photoUpload = document.getElementById('photoUpload');
+            const photoInput = document.getElementById('photoInput');
+
+            photoUpload.addEventListener('click', () => photoInput.click());
+            photoUpload.addEventListener('dragover', handleDragOver);
+            photoUpload.addEventListener('drop', handleDrop);
+            photoInput.addEventListener('change', handlePhotoSelect);
+
+            // Form submission
+            document.getElementById('masterForm').addEventListener('submit', handleFormSubmit);
+        }
+
+        // Show section
+        function showSection(sectionId) {
+            document.querySelectorAll('.admin-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Load masters from localStorage
+        function loadMasters() {
+            const saved = localStorage.getItem('lxglamMasters');
+            if (saved) {
+                masters = JSON.parse(saved);
+            } else {
+                // Initialize with all existing masters from the website
+                masters = [
+                    {
+                        id: 1,
+                        name: "Julya",
+                        specialty: "Brow & Lash Master · Permanent Makeup & Beauty Expert",
+                        services: ["Brow & Lash Master · Permanent Makeup & Beauty Expert"],
+                        serviceTags: ["brows", "lash", "permanent_makeup"],
+                        location: "lisbon",
+                        languages: ["russian", "english"],
+                        nationality: "russian",
+                        priceRange: "budget",
+                        rating: 5,
+                        instagram: "@julya_brows_lisbon",
+                        photos: []
+                    },
+                    {
+                        id: 2,
+                        name: "Natalia",
+                        specialty: "Manicure & Pedicure Master · Podology Specialist & Creative Nail Design",
+                        services: ["Manicure, Pedicure & Advanced Foot Care"],
+                        serviceTags: ["manicure", "pedicure", "podology"],
+                        location: "lisbon",
+                        languages: ["russian", "ukrainian"],
+                        nationality: "russian",
+                        priceRange: "mid",
+                        rating: 5,
+                        instagram: "@natalia_nails_lisbon",
+                        photos: []
+                    },
+                    {
+                        id: 3,
+                        name: "Kseniya",
+                        specialty: "Hair Transformation & Coloring Master · Balayage, AirTouch & Complex Highlights",
+                        services: ["Balayage, Highlights & Advanced Hair Treatments"],
+                        serviceTags: ["hair"],
+                        location: "lisbon",
+                        languages: ["ukrainian", "english", "russian", "portuguese"],
+                        nationality: "ukrainian",
+                        priceRange: "premium",
+                        rating: 5,
+                        instagram: "@kseniya_hair_lisbon",
+                        photos: []
+                    },
+                    {
+                        id: 4,
+                        name: "Dmytro",
+                        specialty: "Haircut, Styling & Coloring Master · Total Blonde & Hair Nourishing Treatments",
+                        services: ["Haircut, Styling & Coloring Master · Total Blonde & Hair Nourishing Treatments"],
+                        serviceTags: ["hair"],
+                        location: "lisbon",
+                        languages: ["ukrainian", "english", "russian", "portuguese"],
+                        nationality: "ukrainian",
+                        priceRange: "mid",
+                        rating: 4,
+                        instagram: "@dmytro_hair_lisbon",
+                        photos: []
+                    },
+                    {
+                        id: 5,
+                        name: "Kristina",
+                        specialty: "Facial & Aesthetic Master · Botox, Fillers & Skin Transformation",
+                        services: ["Botox, Fillers, Lip Enhancement & Advanced Techniques"],
+                        serviceTags: ["facial", "botox", "lips"],
+                        location: "lisbon",
+                        languages: ["ukrainian", "polish", "russian", "english"],
+                        nationality: "ukrainian",
+                        priceRange: "premium",
+                        rating: 5,
+                        instagram: "@kristina_aesthetic_lisbon",
+                        photos: []
+                    },
+                    {
+                        id: 6,
+                        name: "Anna",
+                        specialty: "Keratin & Hair Botox Master · Trichology Expert",
+                        services: ["Keratin & Hair Botox Treatments", "Trichology Consultation"],
+                        serviceTags: ["hair", "keratin_botox", "trichology"],
+                        location: "lisbon",
+                        languages: ["ukrainian", "english", "russian", "portuguese"],
+                        nationality: "ukrainian",
+                        priceRange: "luxury",
+                        rating: 4,
+                        instagram: "@anna_hair_lisbon",
+                        photos: []
+                    },
+                    {
+                        id: 7,
+                        name: "Kayo",
+                        specialty: "Hair & Beauty Master · Haircuts, Coloring, Harmonizing, Extensions & Makeup Expertise",
+                        services: ["Haircuts, Coloring, Harmonizing, Extensions & Makeup"],
+                        serviceTags: ["hair", "extensions", "makeup"],
+                        location: "lisbon",
+                        languages: ["english", "portuguese", "brazilian"],
+                        nationality: "brazilian",
+                        priceRange: "luxury",
+                        rating: 5,
+                        instagram: "@kayo_hair_lisbon",
+                        photos: []
+                    },
+                    {
+                        id: 8,
+                        name: "Patricia Alves",
+                        specialty: "Hair & Face Specialist",
+                        services: ["hair", "face"],
+                        serviceTags: ["hair", "facial"],
+                        location: "oeiras",
+                        languages: ["portuguese", "ukrainian"],
+                        nationality: "portuguese",
+                        priceRange: "mid",
+                        rating: 4,
+                        instagram: "@patricia_hair_lisbon",
+                        photos: []
+                    }
+                ];
+                saveMasters();
+            }
+            renderMastersList();
+        }
+
+        // Save masters to localStorage
+        function saveMasters() {
+            localStorage.setItem('lxglamMasters', JSON.stringify(masters));
+        }
+
+        // Update dashboard stats
+        function updateDashboard() {
+            document.getElementById('totalMasters').textContent = masters.length;
+            
+            const allServices = masters.flatMap(master => master.serviceTags || []);
+            const uniqueServices = [...new Set(allServices)];
+            document.getElementById('totalServices').textContent = uniqueServices.length;
+            
+            const allLocations = masters.map(master => master.location);
+            const uniqueLocations = [...new Set(allLocations)];
+            document.getElementById('totalLocations').textContent = uniqueLocations.length;
+            
+            const allLanguages = masters.flatMap(master => master.languages || []);
+            const uniqueLanguages = [...new Set(allLanguages)];
+            document.getElementById('totalLanguages').textContent = uniqueLanguages.length;
+        }
+
+        // Render masters list
+        function renderMastersList() {
+            const container = document.getElementById('mastersList');
+            container.innerHTML = masters.map(master => `
+                <div class="master-card">
+                    <div class="master-header">
+                        <div class="master-name">${master.name}</div>
+                        <div class="master-actions">
+                            <button class="btn btn-secondary" onclick="editMaster(${master.id})">Edit</button>
+                            <button class="btn btn-danger" onclick="deleteMaster(${master.id})">Delete</button>
+                        </div>
+                    </div>
+                    <div class="master-info">
+                        <div class="info-item">
+                            <div class="info-label">Specialty</div>
+                            <div class="info-value">${master.specialty}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Location</div>
+                            <div class="info-value">${master.location}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Nationality</div>
+                            <div class="info-value">${master.nationality}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Languages</div>
+                            <div class="info-value">${(master.languages || []).join(', ')}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Price Range</div>
+                            <div class="info-value">${master.priceRange}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Rating</div>
+                            <div class="info-value">${master.rating} stars</div>
+                        </div>
+                    </div>
+                    <div class="service-tags-display">
+                        ${(master.serviceTags || []).map(tag => `<span class="tag-display" data-service="${tag}">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update service tags display
+        function updateServiceTagsDisplay() {
+            const container = document.getElementById('serviceTagsContainer');
+            container.innerHTML = currentServiceTags.map(tag => `
+                <div class="tag-item">
+                    ${tag}
+                    <button class="tag-remove" onclick="removeServiceTag('${tag}')">&times;</button>
+                </div>
+            `).join('');
+        }
+
+
+        // Update language tags display
+        function updateLanguageTagsDisplay() {
+            const container = document.getElementById('languageTagsContainer');
+            container.innerHTML = currentLanguageTags.map(tag => `
+                <div class="tag-item">
+                    ${tag}
+                    <button class="tag-remove" onclick="removeLanguageTag('${tag}')">&times;</button>
+                </div>
+            `).join('');
+        }
+
+        // Remove service tag
+        function removeServiceTag(tag) {
+            currentServiceTags = currentServiceTags.filter(t => t !== tag);
+            updateServiceTagsDisplay();
+        }
+
+
+        // Remove language tag
+        function removeLanguageTag(tag) {
+            currentLanguageTags = currentLanguageTags.filter(t => t !== tag);
+            updateLanguageTagsDisplay();
+        }
+
+        // Handle photo drag and drop
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('dragover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files);
+            handleFiles(files);
+        }
+
+        function handlePhotoSelect(e) {
+            const files = Array.from(e.target.files);
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            files.forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        currentPhotos.push({
+                            name: file.name,
+                            data: e.target.result
+                        });
+                        updatePhotoPreview();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        function updatePhotoPreview() {
+            const container = document.getElementById('photoPreview');
+            container.innerHTML = currentPhotos.map((photo, index) => `
+                <div class="photo-item">
+                    <img src="${photo.data}" alt="${photo.name}">
+                    <button class="photo-remove" onclick="removePhoto(${index})">&times;</button>
+                </div>
+            `).join('');
+        }
+
+        function removePhoto(index) {
+            currentPhotos.splice(index, 1);
+            updatePhotoPreview();
+        }
+
+        // Handle form submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const formData = {
+                id: editingMasterId || masters.length + 1,
+                name: document.getElementById('masterName').value,
+                specialty: document.getElementById('masterSpecialty').value,
+                services: [document.getElementById('masterServices').value],
+                serviceTags: currentServiceTags,
+                location: document.getElementById('masterLocation').value,
+                languages: currentLanguageTags,
+                nationality: document.getElementById('masterNationality').value,
+                priceRange: document.getElementById('masterPriceRange').value,
+                rating: parseInt(document.getElementById('masterRating').value),
+                instagram: document.getElementById('masterInstagram').value,
+                photos: currentPhotos
+            };
+
+            if (editingMasterId) {
+                // Update existing master
+                const index = masters.findIndex(m => m.id === editingMasterId);
+                if (index !== -1) {
+                    masters[index] = formData;
+                }
+                alert('Master updated successfully!');
+            } else {
+                // Add new master
+                masters.push(formData);
+                alert('Master added successfully!');
+            }
+
+            saveMasters();
+            renderMastersList();
+            updateDashboard();
+            resetForm();
+        }
+
+        // Reset form
+        function resetForm() {
+            document.getElementById('masterForm').reset();
+            currentServiceTags = [];
+            currentLanguageTags = [];
+            currentPhotos = [];
+            editingMasterId = null;
+            updateServiceTagsDisplay();
+            updateLanguageTagsDisplay();
+            updatePhotoPreview();
+            
+            // Uncheck all service tag checkboxes
+            document.querySelectorAll('.tag-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Update form title
+            document.querySelector('#add-master .section-title').textContent = 'Add New Master';
+        }
+
+        // Edit master
+        function editMaster(id) {
+            const master = masters.find(m => m.id === id);
+            if (master) {
+                editingMasterId = id;
+                
+                // Populate form fields
+                document.getElementById('masterName').value = master.name;
+                document.getElementById('masterSpecialty').value = master.specialty || '';
+                document.getElementById('masterLocation').value = master.location;
+                document.getElementById('masterNationality').value = master.nationality;
+                document.getElementById('masterPriceRange').value = master.priceRange;
+                document.getElementById('masterRating').value = master.rating;
+                document.getElementById('masterInstagram').value = master.instagram || '';
+                document.getElementById('masterServices').value = master.services ? master.services.join(', ') : '';
+                
+                // Populate service tags
+                currentServiceTags = master.serviceTags || [];
+                updateServiceTagsDisplay();
+                
+                // Check the corresponding checkboxes
+                document.querySelectorAll('.tag-option input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = currentServiceTags.includes(checkbox.value);
+                });
+                
+                // Populate language tags
+                currentLanguageTags = master.languages || [];
+                updateLanguageTagsDisplay();
+                
+                // Populate photos
+                currentPhotos = master.photos || [];
+                updatePhotoPreview();
+                
+                // Switch to add-master section
+                showSection('add-master');
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelector('[data-section="add-master"]').classList.add('active');
+                
+                // Update form title
+                document.querySelector('#add-master .section-title').textContent = 'Edit Master';
+            }
+        }
+
+        // Delete master
+        function deleteMaster(id) {
+            if (confirm('Are you sure you want to delete this master?')) {
+                masters = masters.filter(m => m.id !== id);
+                saveMasters();
+                renderMastersList();
+                updateDashboard();
+                alert('Master deleted successfully!');
+            }
+        }
+
+
+        // Export data
+        function exportData() {
+            const dataStr = JSON.stringify(masters, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'lxglam-masters.json';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Import data
+        function importData() {
+            const fileInput = document.getElementById('importFile');
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const importedMasters = JSON.parse(e.target.result);
+                        masters = importedMasters;
+                        saveMasters();
+                        renderMastersList();
+                        updateDashboard();
+                        alert('Data imported successfully!');
+                    } catch (error) {
+                        alert('Error importing data. Please check the file format.');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        // Clear all data
+        function clearAllData() {
+            if (confirm('Are you sure you want to clear all masters data? This cannot be undone.')) {
+                masters = [];
+                saveMasters();
+                renderMastersList();
+                updateDashboard();
+                alert('All data cleared!');
+            }
+        }
+    </script>
+</body>
+</html>
