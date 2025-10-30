@@ -1,11 +1,3945 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=booking.html">
-    <title>LXGLAM - Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>LXGLAM | Book Premium Beauty Services with Verified Masters in Lisbon</title>
+    <meta name="title" content="LXGLAM | Book Premium Beauty Services with Verified Masters in Lisbon">
+    <meta name="description" content="Book premium beauty services with Lisbon's top-tier independent beauty masters. No salons, no waiting lists - direct access to verified makeup artists, hairstylists, skincare specialists, and beauty professionals. Exclusive bookings in Lisbon, Cascais, and Costa da Caparica.">
+    <meta name="keywords" content="beauty booking, makeup artist Lisbon, hairstylist Lisbon, beauty services Portugal, skincare specialist Lisbon, beauty master booking, premium beauty Lisbon, independent beauty artists, verified beauty professionals, beauty concierge Lisbon">
+    <meta name="author" content="LXGLAM">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English, Portuguese">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lxglam.com/">
+    <meta property="og:title" content="LXGLAM | Book Premium Beauty Services with Verified Masters in Lisbon">
+    <meta property="og:description" content="Book premium beauty services with Lisbon's top-tier independent beauty masters. No salons, no waiting lists - direct access to verified beauty professionals.">
+    <meta property="og:image" content="https://lxglam.com/og-image.jpg">
+    <meta property="og:site_name" content="LXGLAM">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lxglam.com/">
+    <meta property="twitter:title" content="LXGLAM | Book Premium Beauty Services in Lisbon">
+    <meta property="twitter:description" content="Book premium beauty services with Lisbon's top-tier independent beauty masters. Direct access to verified professionals.">
+    <meta property="twitter:image" content="https://lxglam.com/twitter-image.jpg">
+    
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#87CEFA">
+    <link rel="canonical" href="https://lxglam.com/booking.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --claret: #C20F47;
+            --antique-white: #FAEBD8;
+            --primary: #000000;
+            --secondary: #FAEBD8;
+            --accent: #C20F47;
+            --text-light: #666;
+            --border: #E5E5E5;
+            --background: #FAFAFA;
+            /* LXGLAM Gradient Colors */
+            --gradient-start: #87CEFA;
+            --gradient-middle: #C084FC;
+            --gradient-end: #FF8FBF;
+            --lxglam-gradient: linear-gradient(135deg, #87CEFA 0%, #C084FC 50%, #FF8FBF 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'ProximaNova-Regular', HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--black);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .admin-link {
+            background: var(--white);
+            border: 2px solid var(--claret);
+            color: var(--claret) !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .admin-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(194, 15, 71, 0.3);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            position: absolute;
+            right: 0;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--black);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-menu a:hover {
+            background: var(--secondary);
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-iframe iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 60px;
+            transform: translateY(-50%);
+            z-index: 10;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .hero-text-below {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 10;
+            text-align: left;
+            background: white;
+            padding: 20px 60px 48px 60px;
+            box-sizing: border-box;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            color: var(--black);
+        }
+
+        .hero-text-below .hero-title {
+            font-size: 1.5rem !important;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+            background: var(--lxglam-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--black);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            color: var(--black);
+        }
+
+        .hero .subtitle-description {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+            color: var(--black);
+            opacity: 0.8;
+        }
+
+        .hero .cta-button {
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .glass-button {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--black) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero .cta-button:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 14px;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            display: block;
+            font-size: 24px;
+            margin-top: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Beauty Brands Section */
+        .brands-section {
+            padding: 60px 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brands-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: var(--black);
+            letter-spacing: 2px;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Row 3 styling - 5 brands, align left */
+        .brands-grid .brand-item:nth-child(n+11) {
+            grid-column: span 1;
+        }
+        
+        /* Align the 5 brands in row 3 to the left */
+        .brands-grid .brand-item:nth-child(11) {
+            grid-column: 1;
+        }
+        .brands-grid .brand-item:nth-child(12) {
+            grid-column: 2;
+        }
+        .brands-grid .brand-item:nth-child(13) {
+            grid-column: 3;
+        }
+        .brands-grid .brand-item:nth-child(14) {
+            grid-column: 4;
+        }
+        .brands-grid .brand-item:nth-child(15) {
+            grid-column: 5;
+        }
+        
+        /* Row 4 styling - 5 brands, align left */
+        .brands-grid .brand-item:nth-child(n+16) {
+            grid-column: span 1;
+        }
+        
+        /* Align the 5 brands in row 4 to the left */
+        .brands-grid .brand-item:nth-child(16) {
+            grid-column: 1;
+        }
+        .brands-grid .brand-item:nth-child(17) {
+            grid-column: 2;
+        }
+        .brands-grid .brand-item:nth-child(18) {
+            grid-column: 3;
+        }
+        .brands-grid .brand-item:nth-child(19) {
+            grid-column: 4;
+        }
+        .brands-grid .brand-item:nth-child(20) {
+            grid-column: 5;
+        }
+
+        .brand-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 20px;
+            background: var(--white);
+            border: 2px solid #D9D9D9;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(217, 217, 217, 0.3);
+            transition: all 0.3s ease;
+            height: 100px;
+        }
+
+        .brand-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(217, 217, 217, 0.5);
+        }
+
+        .brand-item img {
+            max-width: 140px;
+            max-height: 60px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .brand-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        /* Special styling for logos with white backgrounds */
+        .brand-item img[alt="iS Clinical"],
+        .brand-item img[alt="Dr. Barbara Sturm"],
+        .brand-item img[alt="Biologique Recherche"],
+        .brand-item img[alt="ZO Health"],
+        .brand-item img[alt="CLEAN"] {
+            background: transparent;
+            mix-blend-mode: multiply;
+        }
+        /* Institutum logo bigger */
+        .brand-item img[alt="Institutum"] {
+            max-width: 210px !important;
+            max-height: 84px !important;
+        }
+        
+        /* CLEAN logo 50% bigger */
+        .brand-item img[alt="CLEAN"] {
+            max-width: 210px !important;
+            max-height: 90px !important;
+            transform: scale(1.5);
+        }
+        
+        /* Rare Beauty logo 30% bigger and remove white background */
+        .brand-item img[alt="Rare Beauty"] {
+            max-width: 182px !important;
+            max-height: 78px !important;
+            transform: scale(1.3);
+            background: transparent !important;
+            mix-blend-mode: multiply;
+        }
+        
+        /* Multiple logos 20% smaller */
+        .brand-item img[alt="Armani Beauty"],
+        .brand-item img[alt="Dr. Barbara Sturm"],
+        .brand-item img[alt="NARS"],
+        .brand-item img[alt="Davines"],
+        .brand-item img[alt="CND Shellac"] {
+            max-width: 112px !important;
+            max-height: 48px !important;
+            transform: scale(0.8);
+        }
+        
+        /* NARS logo - remove white background and make 15% bigger */
+        .brand-item img[alt="NARS"] {
+            background: transparent !important;
+            mix-blend-mode: multiply;
+            max-width: 129px !important;
+            max-height: 56px !important;
+            transform: scale(0.95);
+        }
+        
+        /* OPI logo - remove white background */
+        .brand-item img[alt="OPI"] {
+            background: transparent !important;
+            mix-blend-mode: multiply;
+        }
+        
+        /* Multiple logos 10% smaller */
+        .brand-item img[alt="Redken"],
+        .brand-item img[alt="Kérastase"],
+        .brand-item img[alt="Charlotte Tilbury"],
+        .brand-item img[alt="MAC Cosmetics"],
+        .brand-item img[alt="L'Oréal Professionnel"],
+        .brand-item img[alt="Bobbi Brown"],
+        .brand-item img[alt="ZO Health"],
+        .brand-item img[alt="OPI"] {
+            max-width: 126px !important;
+            max-height: 54px !important;
+            transform: scale(0.9);
+        }
+        
+        /* Anastasia Beverly Hills logo 5% bigger */
+        .brand-item img[alt="Anastasia Beverly Hills"] {
+            max-width: 147px !important;
+            max-height: 63px !important;
+            transform: scale(1.05);
+        }
+
+        /* Mobile responsive for brands */
+        @media (max-width: 1024px) {
+            .brands-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .brand-item {
+                padding: 20px 15px;
+                height: 80px;
+            }
+            
+            .brand-item img {
+                max-width: 120px;
+                max-height: 50px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .brands-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* Booking Form */
+        .booking-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .booking-form {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: var(--black);
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--black);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .service-card.selected {
+            border-color: var(--black);
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .service-name {
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+
+        /* Unified Get Started Button Style */
+        .btn, .luxury-btn, .apply-btn, .preview-btn, .clear-filters-btn {
+            background: var(--claret);
+            border: 2px solid var(--claret);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover, .luxury-btn:hover, .apply-btn:hover, .preview-btn:hover, .clear-filters-btn:hover {
+            background: var(--lxglam-gradient);
+            border-color: transparent;
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(135, 206, 250, 0.4);
+        }
+
+        .glam-button {
+            background: linear-gradient(135deg, #87CEFA 0%, #C084FC 50%, #FF8FBF 100%);
+            border: 2px solid transparent;
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 15px;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glam-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF8FBF 0%, #C084FC 50%, #87CEFA 100%);
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+
+        .glam-button:hover {
+            background: linear-gradient(135deg, #FF8FBF 0%, #C084FC 50%, #87CEFA 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 143, 191, 0.4),
+                        0 0 30px rgba(192, 132, 252, 0.3);
+        }
+
+        .glam-button span,
+        .glam-button {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--black);
+            border: 2px solid var(--black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .form-navigation .btn {
+            width: 48%;
+        }
+
+        /* Apply to LXGLAM Section */
+        .featured-section {
+            padding: 80px 0;
+            background: var(--lxglam-gradient);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .featured-section .section-title {
+            color: var(--white);
+            background: none;
+            -webkit-text-fill-color: var(--white);
+        }
+        
+        .featured-section h2,
+        .featured-section h3,
+        .featured-section p {
+            color: var(--white);
+        }
+        
+        .apply-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+        
+        .apply-info {
+            flex: 1;
+        }
+        
+        .apply-info h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .apply-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+        
+        .benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            color: var(--text);
+        }
+        
+        .benefit-icon {
+            font-size: 20px;
+        }
+        
+        .apply-button-container {
+            flex-shrink: 0;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .apply-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .apply-info h3 {
+                font-size: 24px;
+            }
+            
+            .apply-info p {
+                font-size: 16px;
+            }
+            
+            .benefits {
+                align-items: center;
+            }
+            
+            .benefit-item {
+                justify-content: center;
+            }
+            
+            .apply-btn {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            background: var(--lxglam-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .salon-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .salon-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .salon-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .salon-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--secondary), var(--border));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--text-light);
+        }
+
+        .salon-info {
+            padding: 25px;
+        }
+
+        .salon-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .salon-location {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .salon-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #ffd700;
+        }
+
+        .salon-services {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Progress Indicator */
+        .progress-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .progress-step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .progress-step.completed {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: 80vh;
+            }
+
+            .hero-content {
+                left: 30px;
+                max-width: calc(100% - 60px);
+            }
+
+            .hero-text-below {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                padding: 16px 30px 36px 30px;
+            }
+
+            .hero-text-below .hero-title {
+                font-size: 1.3rem !important;
+                margin-bottom: 6px;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+            }
+
+            .hero .subtitle {
+                font-size: 20px;
+            }
+
+            .hero .cta-button {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+        }
+
+            .booking-form {
+                margin: 0 20px;
+                padding: 30px 20px;
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 65vh;
+            }
+
+            .hero-content {
+                left: 20px;
+                max-width: calc(100% - 40px);
+            }
+
+            .hero-text-below {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                padding: 14px 20px 28px 20px;
+            }
+
+            .hero-text-below .hero-title {
+                font-size: 1.2rem !important;
+                margin-bottom: 5px;
+            }
+
+            .hero-description {
+                font-size: 0.85rem;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
+            }
+        }
+
+        /* Filter Responsive */
+        @media (max-width: 768px) {
+            .filter-row {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .filter-dropdown {
+                min-width: 100%;
+            }
+
+            .filter-actions {
+                margin-left: 0;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .filter-controls {
+                padding: 20px;
+            }
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 240, 245, 0.9) 0%, 
+                rgba(255, 250, 250, 0.95) 30%,
+                rgba(255, 245, 255, 0.9) 60%,
+                rgba(240, 248, 255, 0.85) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glowing Circles/Gradients in Corners */
+        .filter-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(135, 206, 250, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        .filter-section::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 143, 191, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: 0;
+        }
+
+        .filter-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .filter-section-main-title {
+            background: linear-gradient(135deg, #87CEFA 0%, #C084FC 50%, #FF8FBF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-section-subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .filter-controls {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .location-language-filters {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .filter-dropdown {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .filter-dropdown label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: var(--black);
+            letter-spacing: 0.5px;
+        }
+
+        .filter-dropdown .filter-label {
+            display: block;
+            background: var(--white);
+            border: 2px solid var(--claret);
+            color: var(--claret);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(194, 15, 71, 0.2);
+            margin-bottom: 8px;
+        }
+
+        .filter-dropdown .filter-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(194, 15, 71, 0.3);
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--white);
+            color: var(--black);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--black);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+        }
+
+        .filter-select:hover {
+            border-color: var(--black);
+        }
+
+        .filter-select-placeholder {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--white);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-select-placeholder::after {
+            content: "▼";
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .filter-select-placeholder:hover {
+            border-color: var(--black);
+        }
+
+        .filter-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-left: auto;
+        }
+
+        .clear-filters-btn {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clear-filters-btn:hover {
+            background: var(--secondary);
+            color: var(--black);
+            border-color: var(--black);
+        }
+
+        .results-count {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .results-count span {
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        /* Masters Grid */
+        .masters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .master-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* removed hover overlay */
+
+        .master-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .master-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .master-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .master-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .master-card:nth-child(n+5) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeUpMaster {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .master-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 182, 193, 0.35),
+                        0 8px 24px rgba(255, 143, 191, 0.25),
+                        0 0 40px rgba(135, 206, 250, 0.15);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .master-card.hidden {
+            display: none;
+        }
+
+        .instagram-preview {
+            height: 300px;
+            background: linear-gradient(135deg, 
+                rgba(255, 240, 245, 0.6) 0%, 
+                rgba(240, 248, 255, 0.6) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instagram-preview::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(135, 206, 250, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(30px);
+        }
+
+        .instagram-preview::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 143, 191, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(30px);
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: #fff;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .carousel-track {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+        }
+        .carousel-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: none;
+            border-radius: 20px 20px 0 0;
+            transition: opacity 0.4s;
+        }
+        .carousel-img.active {
+            display: block;
+            opacity: 1;
+        }
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            pointer-events: auto;
+        }
+        .carousel-arrow.left {
+            left: 16px;
+        }
+        .carousel-arrow.right {
+            right: 16px;
+        }
+        .carousel-arrow:hover {
+            background: rgba(0,0,0,0.9);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .carousel-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        .carousel-dots {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .dot.active {
+            background: var(--black);
+        }
+
+        .master-info {
+            padding: 25px;
+        }
+
+        .master-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #87CEFA 0%, #C084FC 50%, #FF8FBF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .master-specialty {
+            color: #999;
+            margin-bottom: 15px;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .master-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #ffd700;
+        }
+
+        .master-location {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .master-languages {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .service-tags-display {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+        }
+
+        .tag-display {
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        /* Service tag colors - Purple, Blue, Pink palette */
+        .tag-display[data-service="manicure"] { background: #8B5CF6; } /* Purple */
+        .tag-display[data-service="pedicure"] { background: #A855F7; } /* Light Purple */
+        .tag-display[data-service="lips"] { background: #EC4899; } /* Hot Pink */
+        .tag-display[data-service="hair"] { background: #6366F1; } /* Indigo Blue */
+        .tag-display[data-service="brows"] { background: #F472B6; } /* Pink */
+        .tag-display[data-service="lash"] { background: #7C3AED; } /* Deep Purple */
+        .tag-display[data-service="permanent_makeup"] { background: #DB2777; } /* Rose Pink */
+        .tag-display[data-service="podology"] { background: #3B82F6; } /* Blue */
+        .tag-display[data-service="trichology"] { background: #8B5A9F; } /* Purple Gray */
+        .tag-display[data-service="keratin_botox"] { background: #C084FC; } /* Light Violet */
+        .tag-display[data-service="botox"] { background: #5B21B6; } /* Dark Purple */
+        .tag-display[data-service="facial"] { background: #1D4ED8; } /* Deep Blue */
+        .tag-display[data-service="makeup"] { background: #BE185D; } /* Dark Pink */
+        .tag-display[data-service="extensions"] { background: #F59E0B; } /* Amber (complementary) */
+        .tag-display[data-service="laser"] { background: #1E40AF; } /* Navy Blue */
+        .tag-display[data-service="massage"] { background: #9333EA; } /* Violet */
+
+        .service-filter-container {
+            position: relative;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .location-filter-container {
+            position: relative;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .language-filter-container {
+            position: relative;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .filter-label {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .filter-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .service-filter-options,
+        .location-filter-options,
+        .language-filter-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            z-index: 1000;
+            max-height: 350px;
+            overflow-y: auto;
+            display: none;
+            padding: 15px;
+            margin-top: 5px;
+        }
+
+        .service-filter-container:hover .service-filter-options,
+        .service-filter-options:hover,
+        .location-filter-container:hover .location-filter-options,
+        .location-filter-options:hover,
+        .language-filter-container:hover .language-filter-options,
+        .language-filter-options:hover {
+            display: block;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            border: 1px solid transparent;
+        }
+
+        .filter-option:hover {
+            background: rgba(194, 15, 71, 0.1);
+            color: var(--claret);
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(194, 15, 71, 0.2);
+        }
+
+        .filter-option input[type="checkbox"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+            accent-color: var(--claret);
+        }
+
+        .filter-option:has(input:checked) {
+            background: rgba(194, 15, 71, 0.1);
+            color: var(--claret);
+            border-color: var(--claret);
+            box-shadow: 0 4px 12px rgba(194, 15, 71, 0.2);
+        }
+
+        /* Service Categories */
+        .service-category {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .service-category:last-child {
+            border-bottom: none;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            cursor: pointer;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .category-header:hover {
+            background: rgba(194, 15, 71, 0.1);
+            color: var(--claret);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(194, 15, 71, 0.2);
+        }
+
+        .category-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .category-toggle {
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .category-header.active .category-toggle {
+            transform: rotate(45deg);
+        }
+
+        .category-options {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .category-options.expanded {
+            max-height: 500px;
+        }
+
+        .category-options .filter-option {
+            margin: 0;
+            border-radius: 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .category-options .filter-option:last-child {
+            border-bottom: none;
+        }
+
+        /* Luxury Service Filters */
+        .luxury-service-filters {
+            margin-bottom: 30px;
+        }
+
+        .filter-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--black);
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .service-categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .luxury-category-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 1px solid #f8f8f8;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .luxury-category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            border-color: var(--claret);
+        }
+
+        .category-card-header {
+            display: flex;
+            align-items: center;
+            padding: 16px 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .category-card-header:hover {
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+        }
+
+        .category-icon {
+            font-size: 18px;
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(232, 213, 183, 0.1);
+            border-radius: 50%;
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--black);
+            margin: 0;
+            flex: 1;
+            letter-spacing: 0.5px;
+        }
+
+        .category-toggle {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--claret);
+            transition: transform 0.3s ease;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(194, 15, 71, 0.1);
+        }
+
+        .luxury-category-card.active .category-toggle {
+            transform: rotate(45deg);
+            background: rgba(194, 15, 71, 0.2);
+        }
+
+        .category-subtypes {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: #fafafa;
+        }
+
+        .category-subtypes.expanded {
+            max-height: 200px;
+        }
+
+        .subtype-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subtype-item:last-child {
+            border-bottom: none;
+        }
+
+        .subtype-item:hover {
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateX(4px);
+        }
+
+        .subtype-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--black);
+            letter-spacing: 0.3px;
+        }
+
+        .subtype-toggle {
+            width: 14px;
+            height: 14px;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .subtype-toggle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: #d4af37;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .subtype-item.selected .subtype-toggle {
+            background: #d4af37;
+        }
+
+        .subtype-item.selected .subtype-toggle::after {
+            opacity: 1;
+            background: white;
+        }
+
+        .subtype-item.selected {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .subtype-item.selected .subtype-name {
+            font-weight: 500;
+            color: #b8941f;
+        }
+
+        @media (max-width: 768px) {
+            .filter-section-title {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+
+            .service-categories-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .category-card-header {
+                padding: 12px 10px;
+            }
+
+            .category-icon {
+                font-size: 16px;
+                width: 24px;
+                height: 24px;
+                margin-right: 8px;
+            }
+
+            .category-title {
+                font-size: 14px;
+            }
+
+            .subtype-item {
+                padding: 8px 10px;
+            }
+
+            .subtype-name {
+                font-size: 11px;
+            }
+        }
+
+
+        .master-price {
+            font-size: 14px;
+            color: var(--black);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        /* Masters Preview Section */
+        .masters-preview {
+            margin: 40px 0;
+            padding: 30px 0;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .preview-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f5f5f5;
+        }
+
+        .preview-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+
+        .preview-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .preview-portrait {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f0f0f0;
+        }
+
+        .preview-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+
+        .preview-specialty {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .preview-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: var(--white);
+            color: var(--black);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .preview-btn.primary {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        .preview-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .preview-btn.primary:hover {
+            background: #333;
+            border-color: #333;
+        }
+
+        .browse-all-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .browse-all-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .browse-all-link:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .preview-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .preview-card {
+                padding: 16px;
+            }
+
+            .preview-card-header {
+                gap: 12px;
+            }
+
+            .preview-portrait {
+                width: 50px;
+                height: 50px;
+            }
+
+            .preview-info h3 {
+                font-size: 16px;
+            }
+
+            .preview-specialty {
+                font-size: 13px;
+            }
+
+            .preview-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .browse-all-link {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 2% auto;
+            padding: 22px;
+            border-radius: 20px;
+            width: 72%;
+            max-width: 400px;
+            max-height: 90vh;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow-y: auto;
+        }
+
+        /* Luxury Form Styling */
+        .luxury-form {
+            max-width: 480px;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .form-header h2 {
+            font-size: 28px;
+            font-weight: 300;
+            color: var(--black);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-subtitle {
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .booking-intention {
+            font-size: 15px;
+            color: var(--black);
+            font-weight: 500;
+            margin: 16px 0 0 0;
+            line-height: 1.5;
+            padding: 16px 20px;
+            background: rgba(255, 107, 107, 0.05);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .luxury-form .form-group {
+            margin-bottom: 24px;
+        }
+
+        .luxury-form label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .luxury-form input,
+        .luxury-form select,
+        .luxury-form textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            background: var(--white);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .luxury-form input:focus,
+        .luxury-form select:focus,
+        .luxury-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .luxury-form input::placeholder,
+        .luxury-form textarea::placeholder {
+            color: #bbb;
+            font-weight: 400;
+        }
+
+        .luxury-form select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .luxury-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .optional {
+            color: var(--text-light);
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        .luxury-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+            color: white;
+            padding: 18px 32px;
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            margin-top: 8px;
+        }
+
+        .luxury-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+        }
+
+        .luxury-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .luxury-form {
+                padding: 24px;
+                margin: 5% auto;
+                width: 90%;
+            }
+
+            .form-header h2 {
+                font-size: 24px;
+            }
+
+            .form-subtitle {
+                font-size: 14px;
+            }
+
+            .booking-intention {
+                font-size: 14px;
+                padding: 12px 16px;
+            }
+
+            .luxury-form input,
+            .luxury-form select,
+            .luxury-form textarea {
+                padding: 14px 16px;
+                font-size: 16px;
+            }
+        }
+
+        .close {
+            color: var(--text-light);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+        }
+
+        .close:hover {
+            color: var(--black);
+        }
+
+        /* Hero Benefits */
+        .hero-benefits {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--black);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* How it Works Section */
+        .how-it-works {
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(135, 206, 250, 0.05) 0%, rgba(192, 132, 252, 0.05) 50%, rgba(255, 143, 191, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--lxglam-gradient);
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .how-it-works .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .how-it-works .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--black);
+            background: var(--lxglam-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.3px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(135, 206, 250, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .step-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .step-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .step-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .step-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(135, 206, 250, 0.3),
+                        0 0 40px rgba(192, 132, 252, 0.2),
+                        0 0 60px rgba(255, 143, 191, 0.15);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 30px;
+            padding: 2px;
+            background: var(--lxglam-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .step-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--lxglam-gradient);
+            border: 3px solid transparent;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 25px;
+            box-shadow: 0 8px 24px rgba(135, 206, 250, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover .step-number {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 40px rgba(192, 132, 252, 0.4),
+                        0 0 30px rgba(255, 143, 191, 0.3);
+        }
+
+        .step-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--black);
+            font-weight: 700;
+            background: var(--lxglam-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover h3 {
+            transform: scale(1.05);
+        }
+
+        .step-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .step-card:hover p {
+            color: var(--black);
+        }
+
+        /* Mobile Responsive for How it Works */
+        @media (max-width: 768px) {
+            .how-it-works {
+                padding: 80px 0;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .step-card {
+                padding: 30px 20px;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+
+            /* Masters grid responsive (revert to defaults) */
+        }
+
+        /* Mobile responsive for hero benefits */
+        @media (max-width: 768px) {
+            .hero-benefits {
+                gap: 10px;
+            }
+            
+            .benefit-item {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .step-card {
+                padding: 25px 15px;
+            }
+        }
+
+    </style>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "LXGLAM",
+      "description": "Book premium beauty services with Lisbon's top-tier independent beauty masters. Direct access to verified makeup artists, hairstylists, and skincare specialists.",
+      "url": "https://lxglam.com",
+      "serviceType": "Beauty Services",
+      "areaServed": {
+        "@type": "City",
+        "name": "Lisbon",
+        "sameAs": "https://en.wikipedia.org/wiki/Lisbon"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://lxglam.com/booking.html",
+        "serviceName": "Online Booking"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "LXGLAM",
+        "description": "Premium beauty booking platform connecting clients with verified independent beauty masters in Lisbon"
+      },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "EUR"
+      }
+    }
+    </script>
 </head>
 <body>
-    <p>Redirecting to LXGLAM...</p>
+    <!-- Header -->
+    <header class="header" style="display: none;">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">LXGLAM</div>
+                <nav class="nav-links">
+                    <a href="#services">Services</a>
+                    <a href="#apply">Apply</a>
+                    <a href="#about">About</a>
+                    <a href="admin.html" class="admin-link">Admin</a>
+                </nav>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#services">Services</a>
+            <a href="#salons">Salons</a>
+            <a href="#about">About</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-iframe">
+            <iframe src='https://my.spline.design/creatorcafeheropage-rDJIGTKuhLoPy64Q4stV7QAp/' frameborder='0' width='100%' height='100%'></iframe>
+        </div>
+        <div class="hero-text-below">
+            <h1 class="hero-title">Your Beauty Airbnb!</h1>
+            <p class="hero-description">Book premium beauty services with verified masters in Lisbon. No salons, no waiting lists - just direct access to the best beauty professionals.</p>
+            <div class="hero-benefits">
+            </div>
+        </div>
+        <div class="scroll-indicator">Scroll to Book</div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Choose Service</h3>
+                    <p>Select your preferred beauty service from our curated selection.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Book</h3>
+                    <p>Pick your date and time, and request your preferred master.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Confirm</h3>
+                    <p>Review your appointment details and confirm your booking.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Glow</h3>
+                    <p>Enjoy your premium beauty experience with Lisbon's finest!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beauty Brands Carousel -->
+    <section class="brands-section">
+        <div class="container">
+            <h2 class="brands-title">Trusted by Top Beauty Brands</h2>
+            <div class="brands-grid">
+                <!-- Row 1: Chanel · Charlotte Tilbury · MAC · NARS · Armani Beauty -->
+                <div class="brand-item">
+                    <img src="https://freepngimg.com/download/chanel/24140-8-chanel-logo-image.png" alt="Chanel Beauty">
+                </div>
+                <div class="brand-item">
+                    <img src="https://vectorseek.com/wp-content/uploads/2023/08/Charlotte-Tilbury-Logo-Vector.svg-.png" alt="Charlotte Tilbury">
+                </div>
+                <div class="brand-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2023/01/MAC-Cosmetics-Logo.png" alt="MAC Cosmetics">
+                </div>
+                <div class="brand-item">
+                    <img src="https://i.pinimg.com/1200x/c9/36/88/c93688263a64e90fd09439888722cd54.jpg" alt="NARS">
+                </div>
+                <div class="brand-item">
+                    <img src="https://cdn.brandfetch.io/idZYm53IFT/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" alt="Armani Beauty">
+                </div>
+                
+                <!-- Row 2: Kérastase · L'Oréal · Redken · Davines · Wella Professionals -->
+                <div class="brand-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/12/Kerastase-Logo.png" alt="Kérastase">
+                </div>
+                <div class="brand-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/04/LOreal-Logo.png" alt="L'Oréal Professionnel">
+                </div>
+                <div class="brand-item">
+                    <img src="https://1000logos.net/wp-content/uploads/2021/04/Redken-logo.png" alt="Redken">
+                </div>
+                <div class="brand-item">
+                    <img src="https://i0.wp.com/shampooguide.dk/wp-content/uploads/2023/02/Davines_Logo.webp?fit=743%2C200&ssl=1" alt="Davines">
+                </div>
+                <div class="brand-item">
+                    <img src="https://iconlogovector.com/uploads/images/2025/03/lg-67d67918f10df-Wella-Professionals.webp" alt="Wella Professionals">
+                </div>
+                
+                <!-- Row 3: Dr. Barbara Sturm · iS Clinical · Biologique Recherche · ZO Health · CLEAN -->
+                <div class="brand-item">
+                    <img src="https://cdn.brandfetch.io/id6hYY-pKv/w/531/h/138/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B" alt="Dr. Barbara Sturm">
+                </div>
+                <div class="brand-item">
+                    <img src="https://rgrpharma.com/wp-content/uploads/2020/03/iS-Clinical.jpg" alt="iS Clinical">
+                </div>
+                <div class="brand-item">
+                    <img src="https://seekvectorlogo.net/wp-content/uploads/2019/03/biologique-recherche-vector-logo.png" alt="Biologique Recherche">
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.touchandglow.ca/wp-content/uploads/2024/06/zo_health.png" alt="ZO Health">
+                </div>
+                <div class="brand-item">
+                    <img src="https://thebeautyroom.store/image/catalog/gttttt/12222822_640x640.jpg?v=1" alt="CLEAN">
+                </div>
+                
+                <!-- Row 4: Bobbi Brown · Anastasia Beverly Hills · Rare Beauty · OPI · CND Shellac -->
+                <div class="brand-item">
+                    <img src="https://vectorseek.com/wp-content/uploads/2023/11/Bobbi-Brown-Logo-Vector.svg-.png" alt="Bobbi Brown">
+                </div>
+                <div class="brand-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2023/01/Anastasia-Beverly-Hills-Logo.png" alt="Anastasia Beverly Hills">
+                </div>
+                <div class="brand-item">
+                    <img src="https://images.seeklogo.com/logo-png/43/1/rare-beauty-logo-png_seeklogo-439975.png" alt="Rare Beauty">
+                </div>
+                <div class="brand-item">
+                    <img src="https://barkershairdressing.com/img/groups/opi-nail-lacquer.png" alt="OPI">
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.facefactsbakewell.co.uk/wp-content/uploads/2020/04/cnd-shellac.png" alt="CND Shellac">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <h2 class="section-title filter-section-main-title">Find Your Perfect Beauty Master</h2>
+            <p class="filter-section-subtitle">Discover top-rated experts in hair, nails, skin, and glam — handpicked for your perfect match 💫</p>
+            
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <div class="filter-row">
+                    <div class="luxury-service-filters">
+                        <h3 class="filter-section-title">Select Your Beauty Experience</h3>
+                        <div class="service-categories-grid">
+                            <!-- Makeup Category -->
+                            <div class="luxury-category-card" data-category="makeup">
+                                <div class="category-card-header" onclick="toggleLuxuryCategory('makeup')">
+                                    <div class="category-icon">✨</div>
+                                    <h4 class="category-title">Makeup</h4>
+                                    <div class="category-toggle">+</div>
+                                </div>
+                                <div class="category-subtypes" id="makeup-subtypes">
+                                    <div class="subtype-item" data-service="soft_glam">
+                                        <span class="subtype-name">Soft Glam</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="editorial">
+                                        <span class="subtype-name">Editorial</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="bridal">
+                                        <span class="subtype-name">Bridal</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="event">
+                                        <span class="subtype-name">Event</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                        </div>
+                    </div>
+
+                            <!-- Hair & Styling Category -->
+                            <div class="luxury-category-card" data-category="hair">
+                                <div class="category-card-header" onclick="toggleLuxuryCategory('hair')">
+                                    <div class="category-icon">💇</div>
+                                    <h4 class="category-title">Hair & Styling</h4>
+                                    <div class="category-toggle">+</div>
+                                </div>
+                                <div class="category-subtypes" id="hair-subtypes">
+                                    <div class="subtype-item" data-service="styling">
+                                        <span class="subtype-name">Styling</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="blowout">
+                                        <span class="subtype-name">Blowout</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="coloring">
+                                        <span class="subtype-name">Coloring</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="updos">
+                                        <span class="subtype-name">Updos</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Facials & Skincare Category -->
+                            <div class="luxury-category-card" data-category="skin">
+                                <div class="category-card-header" onclick="toggleLuxuryCategory('skin')">
+                                    <div class="category-icon">🌿</div>
+                                    <h4 class="category-title">Facials & Skincare</h4>
+                                    <div class="category-toggle">+</div>
+                                </div>
+                                <div class="category-subtypes" id="skin-subtypes">
+                                    <div class="subtype-item" data-service="facials">
+                                        <span class="subtype-name">Facials</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="rejuvenation">
+                                        <span class="subtype-name">Rejuvenation</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="treatments">
+                                        <span class="subtype-name">Treatments</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Injectables & Fillers Category -->
+                            <div class="luxury-category-card" data-category="injectables">
+                                <div class="category-card-header" onclick="toggleLuxuryCategory('injectables')">
+                                    <div class="category-icon">💉</div>
+                                    <h4 class="category-title">Injectables & Fillers</h4>
+                                    <div class="category-toggle">+</div>
+                                </div>
+                                <div class="category-subtypes" id="injectables-subtypes">
+                                    <div class="subtype-item" data-service="botox">
+                                        <span class="subtype-name">Botox</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="dermal_fillers">
+                                        <span class="subtype-name">Dermal Fillers</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="lip_fillers">
+                                        <span class="subtype-name">Lip Fillers</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="cheek_fillers">
+                                        <span class="subtype-name">Cheek Fillers</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Nails Category -->
+                            <div class="luxury-category-card" data-category="nails">
+                                <div class="category-card-header" onclick="toggleLuxuryCategory('nails')">
+                                    <div class="category-icon">💅</div>
+                                    <h4 class="category-title">Nails</h4>
+                                    <div class="category-toggle">+</div>
+                                </div>
+                                <div class="category-subtypes" id="nails-subtypes">
+                                    <div class="subtype-item" data-service="manicure">
+                                        <span class="subtype-name">Manicure</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="pedicure">
+                                        <span class="subtype-name">Pedicure</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="nail_art">
+                                        <span class="subtype-name">Nail Art</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="gel_polish">
+                                        <span class="subtype-name">Gel Polish</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Eyebrows & Eyelashes Category -->
+                            <div class="luxury-category-card" data-category="eyebrows-eyelashes">
+                                <div class="category-card-header" onclick="toggleLuxuryCategory('eyebrows-eyelashes')">
+                                    <div class="category-icon">👁️</div>
+                                    <h4 class="category-title">Eyebrows & Eyelashes</h4>
+                                    <div class="category-toggle">+</div>
+                                </div>
+                                <div class="category-subtypes" id="eyebrows-eyelashes-subtypes">
+                                    <div class="subtype-item" data-service="brow_shaping">
+                                        <span class="subtype-name">Brow Shaping</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="brow_tinting">
+                                        <span class="subtype-name">Brow Tinting</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="microblading">
+                                        <span class="subtype-name">Microblading</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="lash_extensions">
+                                        <span class="subtype-name">Lash Extensions</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="lash_lift">
+                                        <span class="subtype-name">Lash Lift</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="lash_tinting">
+                                        <span class="subtype-name">Lash Tinting</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Body Category -->
+                            <div class="luxury-category-card" data-category="body">
+                                <div class="category-card-header" onclick="toggleLuxuryCategory('body')">
+                                    <div class="category-icon">🧘</div>
+                                    <h4 class="category-title">Body</h4>
+                                    <div class="category-toggle">+</div>
+                                </div>
+                                <div class="category-subtypes" id="body-subtypes">
+                                    <div class="subtype-item" data-service="massage">
+                                        <span class="subtype-name">Massage</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="body_treatments">
+                                        <span class="subtype-name">Body Treatments</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="waxing">
+                                        <span class="subtype-name">Waxing</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                    <div class="subtype-item" data-service="spa_treatments">
+                                        <span class="subtype-name">Spa Treatments</span>
+                                        <div class="subtype-toggle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location and Language Filters -->
+                    <div class="location-language-filters">
+                    <div class="filter-dropdown location-filter-container">
+                        <label class="filter-label">Location</label>
+                        <div class="filter-select-placeholder">Select Location</div>
+                        <div class="location-filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="lisbon" data-filter="location"> Lisbon
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="cascais" data-filter="location"> Cascais
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="costa-da-caparica" data-filter="location"> Costa da Caparica
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-dropdown language-filter-container">
+                        <label class="filter-label">Language</label>
+                        <div class="filter-select-placeholder">Select Language</div>
+                        <div class="language-filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="portuguese" data-filter="language"> Portuguese
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="english" data-filter="language"> English
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="ukrainian" data-filter="language"> Ukrainian
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="russian" data-filter="language"> Russian
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="filter-actions">
+                        <button class="clear-filters-btn" onclick="clearAllFilters()">
+                            <span>Clear All</span>
+                        </button>
+                        <div class="results-count" id="resultsCount">
+                            <span id="resultsNumber">8</span> masters found
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Masters Preview Grid -->
+            <div class="masters-preview" id="mastersPreview">
+                <div class="preview-grid">
+                    <!-- Preview cards will be populated by JavaScript -->
+                </div>
+                <div class="browse-all-container">
+                    <a href="#mastersGrid" class="browse-all-link">Browse all masters →</a>
+                </div>
+            </div>
+
+            <!-- Masters Grid -->
+            <div class="masters-grid" id="mastersGrid">
+                <!-- Masters will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content luxury-form">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="form-header">
+                <h2>Request Your Beauty Experience</h2>
+                <p class="form-subtitle">Connect with Lisbon's finest beauty masters</p>
+                <p class="booking-intention">Tell us what you're looking for — we'll personally match you with the most suitable LX Glam master.</p>
+            </div>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="clientName">Name</label>
+                    <input type="text" id="clientName" placeholder="Your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="clientPhone">Phone or WhatsApp</label>
+                    <input type="tel" id="clientPhone" placeholder="Your contact number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="preferredService">Preferred Service</label>
+                    <select id="preferredService" required>
+                        <option value="">Select your service</option>
+                        <option value="Makeup">Makeup</option>
+                        <option value="Hair">Hair</option>
+                        <option value="Skincare">Skincare</option>
+                        <option value="Nails">Nails</option>
+                        <option value="Brows & Lashes">Brows & Lashes</option>
+                        <option value="Permanent Makeup">Permanent Makeup</option>
+                        <option value="Hair Extensions">Hair Extensions</option>
+                        <option value="Laser Treatments">Laser Treatments</option>
+                        <option value="Massage">Massage</option>
+                        <option value="Multiple Services">Multiple Services</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bookingDateTime">Ideal Date & Time</label>
+                    <input type="datetime-local" id="bookingDateTime" placeholder="When would you like your service?">
+                </div>
+                
+                  <div class="form-group">
+                    <label for="additionalNotes">Notes <span class="optional">(optional)</span></label>
+                    <textarea id="additionalNotes" placeholder="e.g., 'Soft glam for event,' 'Need natural look,' 'Special occasion'" rows="3"></textarea>
+                  </div>
+                  
+                <button type="submit" class="luxury-btn">Request My LX Glam Match</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Apply to LXGLAM -->
+    <section class="featured-section" id="apply">
+        <div class="container">
+            <h2 class="section-title">Join Our Elite Team</h2>
+            <div class="apply-content">
+                <div class="apply-info">
+                    <h3>Join Lisbon's Premium Network of Beauty Masters</h3>
+                    <p><strong>Limited spots available.</strong> Be part of the city's most exclusive beauty community.</p>
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">💎</span>
+                            <span>Premium clientele & higher rates</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">⚡</span>
+                            <span>Direct bookings, no salon overhead</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🎯</span>
+                            <span>Verified expertise recognition</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="apply-button-container">
+                    <button class="apply-btn" onclick="openApplicationModal()">Apply to LXGLAM</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeApplicationModal()">&times;</span>
+            <h2>Apply to LXGLAM</h2>
+            <form id="applicationForm">
+                <div class="form-group">
+                    <label for="applicantName">Full Name *</label>
+                    <input type="text" id="applicantName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantPhone">Phone Number *</label>
+                    <input type="tel" id="applicantPhone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantEmail">Email Address *</label>
+                    <input type="email" id="applicantEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantSpecialty">Beauty Specialty *</label>
+                    <select id="applicantSpecialty" required>
+                        <option value="">Select your specialty</option>
+                        <option value="Hair Styling & Coloring">Hair Styling & Coloring</option>
+                        <option value="Brow & Lash Artistry">Brow & Lash Artistry</option>
+                        <option value="Manicure & Pedicure">Manicure & Pedicure</option>
+                        <option value="Facial & Aesthetic Treatments">Facial & Aesthetic Treatments</option>
+                        <option value="Permanent Makeup">Permanent Makeup</option>
+                        <option value="Massage Therapy">Massage Therapy</option>
+                        <option value="Laser Treatments">Laser Treatments</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantExperience">Years of Experience *</label>
+                    <select id="applicantExperience" required>
+                        <option value="">Select experience level</option>
+                        <option value="0-1 years">0-1 years</option>
+                        <option value="2-3 years">2-3 years</option>
+                        <option value="4-5 years">4-5 years</option>
+                        <option value="6-10 years">6-10 years</option>
+                        <option value="10+ years">10+ years</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantLanguages">Languages Spoken</label>
+                    <input type="text" id="applicantLanguages" placeholder="e.g., English, Portuguese, Russian, Ukrainian">
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantLocation">Preferred Location</label>
+                    <select id="applicantLocation">
+                        <option value="">Select location</option>
+                        <option value="Lisbon">Lisbon</option>
+                        <option value="Cascais">Cascais</option>
+                        <option value="Sintra">Sintra</option>
+                        <option value="Oeiras">Oeiras</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantInstagram">Instagram Handle</label>
+                    <input type="text" id="applicantInstagram" placeholder="@your_instagram">
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantPortfolio">Portfolio/Work Examples</label>
+                    <textarea id="applicantPortfolio" rows="2" placeholder="Share links to your work, portfolio, or describe your experience..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantMotivation">Why do you want to join LXGLAM?</label>
+                    <textarea id="applicantMotivation" rows="2" placeholder="Tell us about your passion for beauty and why you'd be a great fit..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Load masters data from localStorage (synced with admin system)
+        function loadMastersData() {
+            const saved = localStorage.getItem('lxglamMasters');
+            if (saved) {
+                return JSON.parse(saved);
+            } else {
+                // Fallback to default data if no admin data exists
+                return [
+            {
+                id: 1,
+                name: "Julya",
+                specialty: "Brow & Lash Master · Permanent Makeup & Beauty Expert",
+                services: ["Brow & Lash Master · Permanent Makeup & Beauty Expert"],
+                serviceTags: ["brows", "lash", "permanent_makeup"],
+                location: "lisbon",
+                languages: ["russian", "english"],
+                nationality: "russian",
+                priceRange: "budget",
+                rating: 5,
+                instagram: "@julya_brows_lisbon"
+            },
+            {
+                id: 2,
+                name: "Natalia",
+                specialty: "Manicure & Pedicure Master · Podology Specialist & Creative Nail Design",
+                services: ["Manicure, Pedicure & Advanced Foot Care"],
+                serviceTags: ["manicure", "pedicure", "podology"],
+                location: "lisbon",
+                languages: ["russian", "ukrainian"],
+                nationality: "russian",
+                priceRange: "mid",
+                rating: 5,
+                instagram: "@natalia_nails_lisbon"
+            },
+            {
+                id: 3,
+                name: "Kseniya",
+                specialty: "Hair Transformation & Coloring Master · Balayage, AirTouch & Complex Highlights",
+                services: ["Balayage, Highlights & Advanced Hair Treatments"],
+                serviceTags: ["hair"],
+                location: "lisbon",
+                languages: ["ukrainian", "english", "russian", "portuguese"],
+                nationality: "ukrainian",
+                priceRange: "premium",
+                rating: 5,
+                instagram: "@kseniya_hair_lisbon"
+            },
+            {
+                id: 4,
+                name: "Dmytro",
+                specialty: "Haircut, Styling & Coloring Master · Total Blonde & Hair Nourishing Treatments",
+                services: ["Haircut, Styling & Coloring Master · Total Blonde & Hair Nourishing Treatments"],
+                serviceTags: ["hair"],
+                location: "lisbon",
+                languages: ["ukrainian", "english", "russian", "portuguese"],
+                nationality: "ukrainian",
+                priceRange: "mid",
+                rating: 4,
+                instagram: "@dmytro_hair_lisbon"
+            },
+            {
+                id: 5,
+                name: "Kristina",
+                specialty: "Facial & Aesthetic Master · Botox, Fillers & Skin Transformation",
+                services: ["Botox, Fillers, Lip Enhancement & Advanced Techniques"],
+                serviceTags: ["facial", "botox", "lips"],
+                location: "lisbon",
+                languages: ["ukrainian", "polish", "russian", "english"],
+                nationality: "ukrainian",
+                priceRange: "premium",
+                rating: 5,
+                instagram: "@kristina_aesthetic_lisbon"
+            },
+            {
+                id: 6,
+                name: "Anna",
+                specialty: "Keratin & Hair Botox Master · Trichology Expert",
+                services: ["Keratin & Hair Botox Treatments", "Trichology Consultation"],
+                serviceTags: ["hair", "keratin_botox", "trichology"],
+                location: "lisbon",
+                languages: ["ukrainian", "english", "russian", "portuguese"],
+                nationality: "ukrainian",
+                priceRange: "luxury",
+                rating: 4,
+                instagram: "@anna_hair_lisbon"
+            },
+            {
+                id: 7,
+                name: "Kayo",
+                specialty: "Hair & Beauty Master · Haircuts, Coloring, Harmonizing, Extensions & Makeup Expertise",
+                services: ["Haircuts, Coloring, Harmonizing, Extensions & Makeup"],
+                serviceTags: ["hair", "extensions", "makeup"],
+                location: "lisbon",
+                languages: ["english", "portuguese", "brazilian"],
+                nationality: "brazilian",
+                priceRange: "luxury",
+                rating: 5,
+                instagram: "@kayo_hair_lisbon"
+            },
+            {
+                id: 8,
+                name: "Patricia Alves",
+                specialty: "Hair & Face Specialist",
+                services: ["hair", "face"],
+                serviceTags: ["hair", "facial"],
+                location: "oeiras",
+                languages: ["portuguese", "ukrainian"],
+                nationality: "portuguese",
+                priceRange: "mid",
+                rating: 4,
+                instagram: "@patricia_hair_lisbon"
+            }
+        ];
+            }
+        }
+
+        // Load masters data
+        const masters = loadMastersData();
+
+        let currentFilters = {
+            service: [],
+            location: [],
+            language: [],
+            nationality: 'all'
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Refresh masters data from localStorage
+            const updatedMasters = loadMastersData();
+            masters.length = 0;
+            masters.push(...updatedMasters);
+            
+            renderMasters();
+            setupFilters();
+            setupBookingForm();
+            setupApplicationForm();
+            setupMobileMenu();
+        });
+
+        // Refresh data when user returns from admin (focus event)
+        window.addEventListener('focus', function() {
+            const updatedMasters = loadMastersData();
+            masters.length = 0;
+            masters.push(...updatedMasters);
+            renderMasters();
+        });
+
+        // Also refresh when page becomes visible (for mobile)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                const updatedMasters = loadMastersData();
+                masters.length = 0;
+                masters.push(...updatedMasters);
+                renderMasters();
+            }
+        });
+
+        // Mobile menu toggle
+        function setupMobileMenu() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.style.display = 'none';
+                }
+            });
+        }
+
+        // Render preview cards
+        function renderPreviewCards(previewMasters) {
+            const previewGrid = document.querySelector('.preview-grid');
+            
+            if (previewMasters.length === 0) {
+                previewGrid.innerHTML = '<p style="text-align: center; color: #666; grid-column: 1 / -1;">No masters found matching your criteria.</p>';
+                return;
+            }
+
+            previewGrid.innerHTML = previewMasters.map(master => {
+                // Get primary specialty from service tags
+                const primarySpecialty = master.serviceTags && master.serviceTags.length > 0 
+                    ? master.serviceTags[0].charAt(0).toUpperCase() + master.serviceTags[0].slice(1)
+                    : 'Beauty Specialist';
+
+                // Get portrait image
+                const portraitImg = master.photos && master.photos.length > 0 
+                    ? master.photos[0].data 
+                    : 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face';
+
+                return `
+                    <div class="preview-card">
+                        <div class="preview-card-header">
+                            <img src="${portraitImg}" alt="${master.name}" class="preview-portrait">
+                            <div class="preview-info">
+                                <h3>${master.name}</h3>
+                                <div class="preview-specialty">${primarySpecialty}</div>
+                            </div>
+                        </div>
+                        <div class="preview-actions">
+                            <button class="preview-btn" onclick="scrollToMaster('${master.id}')">View Profile →</button>
+                            <button class="preview-btn primary" onclick="selectMaster('${master.id}')">Request This Artist</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Scroll to specific master in the grid
+        function scrollToMaster(masterId) {
+            const masterElement = document.querySelector(`[data-master-id="${masterId}"]`);
+            if (masterElement) {
+                masterElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Highlight the master briefly
+                masterElement.style.boxShadow = '0 8px 32px rgba(255, 107, 107, 0.3)';
+                setTimeout(() => {
+                    masterElement.style.boxShadow = '';
+                }, 2000);
+            }
+        }
+
+        // Select master and open booking modal
+        function selectMaster(masterId) {
+            const master = masters.find(m => m.id === masterId);
+            if (master) {
+                window.selectedMaster = master.name;
+                openModal();
+            }
+        }
+
+        // Render masters based on current filters
+        function renderMasters() {
+            const mastersGrid = document.getElementById('mastersGrid');
+            const resultsNumber = document.getElementById('resultsNumber');
+            
+            const filteredMasters = masters.filter(master => {
+                return (
+                    (currentFilters.service.length === 0 || (master.serviceTags && currentFilters.service.some(tag => master.serviceTags.includes(tag)))) &&
+                    (currentFilters.location.length === 0 || currentFilters.location.includes(master.location)) &&
+                    (currentFilters.language.length === 0 || currentFilters.language.some(lang => master.languages.includes(lang))) &&
+                    (currentFilters.nationality === 'all' || master.nationality === currentFilters.nationality)
+                );
+            });
+
+            // Update results counter
+            resultsNumber.textContent = filteredMasters.length;
+
+            // Render preview cards (first 3 masters)
+            renderPreviewCards(filteredMasters.slice(0, 3));
+
+            mastersGrid.innerHTML = filteredMasters.map(master => {
+                // Dynamic carousel images from admin photos
+                let photoArea = '';
+                if (master.photos && master.photos.length > 0) {
+                    // Use photos from admin system
+                    photoArea = `
+                    <div class="carousel" id="carousel-${master.id}">
+                        <div class="carousel-track">
+                            ${master.photos.map((photo, index) => 
+                                `<img src="${photo.data}" alt="${master.name}'s Work ${index + 1}" class="carousel-img ${index === 0 ? 'active' : ''}">`
+                            ).join('')}
+                        </div>`;
+                } else {
+                    // Fallback to default images if no photos uploaded
+                    photoArea = `
+                    <div class="carousel" id="carousel-${master.id}">
+                        <div class="carousel-track">
+                            <img src="https://images.unsplash.com/photo-1541701494587-c122ded686a5?auto=format&fit=crop&w=400&h=400" alt="Portfolio 1" class="carousel-img active">
+                            <img src="https://images.unsplash.com/photo-1557683311-eac922347aa1?auto=format&fit=crop&w=400&h=400" alt="Portfolio 2" class="carousel-img">
+                            <img src="https://images.unsplash.com/photo-1557683304-673a23048d34?auto=format&fit=crop&w=400&h=400" alt="Portfolio 3" class="carousel-img">
+                            <img src="https://images.unsplash.com/photo-1557683316-973673b475926?auto=format&fit=crop&w=400&h=400" alt="Portfolio 4" class="carousel-img">
+                            <img src="https://images.unsplash.com/photo-1557683304-673a23048d34?auto=format&fit=crop&w=400&h=400" alt="Portfolio 5" class="carousel-img">
+                        </div>`;
+                }
+                // Generate dynamic dots based on number of photos
+                const photoCount = master.photos ? master.photos.length : 5;
+                const dots = Array.from({length: photoCount}, (_, i) => 
+                    `<span class="dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation();goToSlide(${master.id},${i})"></span>`
+                ).join('');
+
+                photoArea += `
+                        <button class="carousel-arrow left" onclick="event.stopPropagation(); event.preventDefault(); console.log('Left arrow clicked for master', ${master.id}); prevSlide(${master.id}); return false;" title="Previous image">‹</button>
+                        <button class="carousel-arrow right" onclick="event.stopPropagation(); event.preventDefault(); console.log('Right arrow clicked for master', ${master.id}); nextSlide(${master.id}); return false;" title="Next image">›</button>
+                        <div class="carousel-dots">
+                            ${dots}
+                        </div>
+                    </div>`;
+                const quickInfo = master.specialty ? `Specialist in ${master.specialty}` : 'Top-rated specialist';
+
+                return `
+                <div class="master-card" data-master-id="${master.id}">
+                    ${photoArea}
+                    
+                    <div class="master-info">
+                        <h3 class="master-name">${master.name}</h3>
+                        <p class="master-specialty">${master.specialty}</p>
+                        <div class="service-tags-display">
+                            ${(master.serviceTags || []).map(tag => `<span class="tag-display" data-service="${tag}">${tag}</span>`).join('')}
+                        </div>
+                        <p class="master-location">📍 ${master.location.charAt(0).toUpperCase() + master.location.slice(1)}</p>
+                        <p class="master-languages">🗣️ ${master.languages.join(', ')}</p>
+                        <button class="glam-button" onclick="event.stopPropagation(); openBookingModal('${master.name}', '${(master.services||[]).join(', ')}')">Let's Glam!</button>
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
+
+        // Setup filter functionality
+        function setupFilters() {
+            const searchInput = document.getElementById('mastersSearchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    renderMasters();
+                });
+            }
+            document.querySelectorAll('.filter-select').forEach(select => {
+                select.addEventListener('change', function() {
+                    const filterType = this.dataset.filter;
+                    const filterValue = this.value;
+
+                    // Update current filters
+                    currentFilters[filterType] = filterValue;
+
+                    // Re-render masters
+                    renderMasters();
+                });
+            });
+
+            // Setup service tag checkbox listeners
+            document.querySelectorAll('.service-filter-options .filter-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const serviceTag = this.value;
+                    
+                    if (this.checked) {
+                        if (!currentFilters.service.includes(serviceTag)) {
+                            currentFilters.service.push(serviceTag);
+                        }
+                    } else {
+                        currentFilters.service = currentFilters.service.filter(tag => tag !== serviceTag);
+                    }
+
+                    // Re-render masters
+                    renderMasters();
+                });
+            });
+
+            // Setup location checkbox listeners
+            document.querySelectorAll('.location-filter-options .filter-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const location = this.value;
+                    
+                    if (this.checked) {
+                        if (!currentFilters.location.includes(location)) {
+                            currentFilters.location.push(location);
+                        }
+                    } else {
+                        currentFilters.location = currentFilters.location.filter(loc => loc !== location);
+                    }
+
+                    // Re-render masters
+                    renderMasters();
+                });
+            });
+
+            // Setup language checkbox listeners
+            document.querySelectorAll('.language-filter-options .filter-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const language = this.value;
+                    
+                    if (this.checked) {
+                        if (!currentFilters.language.includes(language)) {
+                            currentFilters.language.push(language);
+                        }
+                    } else {
+                        currentFilters.language = currentFilters.language.filter(lang => lang !== language);
+                    }
+
+                    // Re-render masters
+                    renderMasters();
+                });
+            });
+
+            // Setup luxury subtype listeners
+            document.querySelectorAll('.subtype-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    toggleSubtype(this);
+                });
+            });
+
+        }
+
+        // Toggle luxury category expansion
+        function toggleLuxuryCategory(categoryId) {
+            const subtypes = document.getElementById(categoryId + '-subtypes');
+            const card = subtypes.closest('.luxury-category-card');
+            const toggle = card.querySelector('.category-toggle');
+            
+            if (subtypes.classList.contains('expanded')) {
+                subtypes.classList.remove('expanded');
+                card.classList.remove('active');
+                toggle.textContent = '+';
+            } else {
+                subtypes.classList.add('expanded');
+                card.classList.add('active');
+                toggle.textContent = '−';
+            }
+        }
+
+        // Toggle subtype selection
+        function toggleSubtype(subtypeElement) {
+            subtypeElement.classList.toggle('selected');
+            const serviceValue = subtypeElement.dataset.service;
+            
+            if (subtypeElement.classList.contains('selected')) {
+                if (!currentFilters.service.includes(serviceValue)) {
+                    currentFilters.service.push(serviceValue);
+                }
+            } else {
+                currentFilters.service = currentFilters.service.filter(s => s !== serviceValue);
+            }
+            
+            renderMasters();
+        }
+
+        // Toggle category expansion
+        function toggleCategory(categoryId) {
+            const options = document.getElementById(categoryId + '-options');
+            const header = options.previousElementSibling;
+            const toggle = header.querySelector('.category-toggle');
+            
+            if (options.classList.contains('expanded')) {
+                options.classList.remove('expanded');
+                header.classList.remove('active');
+                toggle.textContent = '+';
+            } else {
+                options.classList.add('expanded');
+                header.classList.add('active');
+                toggle.textContent = '−';
+            }
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            document.querySelectorAll('.filter-select').forEach(select => {
+                select.value = 'all';
+            });
+            
+            // Clear all checkboxes
+            document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Collapse all categories
+            document.querySelectorAll('.category-options').forEach(options => {
+                options.classList.remove('expanded');
+            });
+            document.querySelectorAll('.category-header').forEach(header => {
+                header.classList.remove('active');
+                header.querySelector('.category-toggle').textContent = '+';
+            });
+            
+            currentFilters = {
+                service: [],
+                location: [],
+                language: [],
+                nationality: 'all'
+            };
+
+            renderMasters();
+        }
+
+        // Setup booking form
+        function setupBookingForm() {
+            document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                     master: window.selectedMaster || 'LXGLAM Beauty Master',
+                    name: document.getElementById('clientName').value,
+                     dateTime: document.getElementById('bookingDateTime').value,
+                     phone: document.getElementById('clientPhone').value,
+                     preferredService: document.getElementById('preferredService').value,
+                     additionalNotes: document.getElementById('additionalNotes').value
+                 };
+
+                 // Validate required fields
+                 if (!formData.name || !formData.phone || !formData.preferredService) {
+                     alert('Please fill in all required fields (Name, Phone, and Preferred Service).');
+                     return;
+                 }
+
+                // Send to Telegram Bot
+                const message = `🎯 *New LXGLAM Booking Request*
+
+👤 *Client:* ${formData.name}
+📞 *Phone:* ${formData.phone}
+👨‍💼 *Master:* ${formData.master}
+💅 *Service:* ${formData.preferredService || 'Not specified'}
+📅 *Date & Time:* ${formData.dateTime ? new Date(formData.dateTime).toLocaleString() : 'Flexible'}
+📝 *Notes:* ${formData.additionalNotes || 'None'}
+
+Please contact the client to confirm the appointment.`;
+
+                const botToken = '8466676132:AAHi1-a_KbTrk1KRP90I1iT6Ip4UBLRxUmg';
+                const chatId = '5268028095';
+
+                try {
+                    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                            parse_mode: 'Markdown'
+                        })
+                    });
+
+                    if (response.ok) {
+                        alert(`✅ Booking request sent successfully!\n\nMaster: ${formData.master}\nClient: ${formData.name}\n\nWe'll contact you soon to confirm your appointment.`);
+                        closeModal();
+                        this.reset();
+                    } else {
+                        const errorData = await response.json();
+                        throw new Error(errorData.description || 'Failed to send message to Telegram');
+                    }
+                } catch (error) {
+                    console.error('Error sending to Telegram:', error);
+                    alert(`❌ Error sending booking request: ${error.message}\n\nPlease try again or contact us directly.`);
+                }
+            });
+
+             // Set minimum datetime to now
+             const now = new Date();
+             now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+             document.getElementById('bookingDateTime').min = now.toISOString().slice(0, 16);
+        }
+
+        // Application Modal Functions
+        function openApplicationModal() {
+            document.getElementById('applicationModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeApplicationModal() {
+            document.getElementById('applicationModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Setup Application Form
+        function setupApplicationForm() {
+            document.getElementById('applicationForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('applicantName').value,
+                    phone: document.getElementById('applicantPhone').value,
+                    email: document.getElementById('applicantEmail').value,
+                    specialty: document.getElementById('applicantSpecialty').value,
+                    experience: document.getElementById('applicantExperience').value,
+                    languages: document.getElementById('applicantLanguages').value,
+                    location: document.getElementById('applicantLocation').value,
+                    instagram: document.getElementById('applicantInstagram').value,
+                    portfolio: document.getElementById('applicantPortfolio').value,
+                    motivation: document.getElementById('applicantMotivation').value
+                };
+
+                // Validate required fields
+                if (!formData.name || !formData.phone || !formData.email || !formData.specialty || !formData.experience) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                // Send application to Telegram Bot
+                const message = `🎯 *New LXGLAM Application*
+
+👤 *Applicant:* ${formData.name}
+📞 *Phone:* ${formData.phone}
+📧 *Email:* ${formData.email}
+💅 *Specialty:* ${formData.specialty}
+⏰ *Experience:* ${formData.experience}
+🗣️ *Languages:* ${formData.languages || 'Not specified'}
+📍 *Location:* ${formData.location || 'Not specified'}
+📱 *Instagram:* ${formData.instagram || 'Not specified'}
+🎨 *Portfolio:* ${formData.portfolio || 'Not specified'}
+💭 *Motivation:* ${formData.motivation || 'Not specified'}
+
+Please review this application and contact the applicant.`;
+
+                const botToken = '8466676132:AAHi1-a_KbTrk1KRP90I1iT6Ip4UBLRxUmg';
+                const chatId = '5268028095';
+
+                try {
+                    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                            parse_mode: 'Markdown'
+                        })
+                    });
+
+                    if (response.ok) {
+                        alert(`✅ Thank you for applying to LXGLAM!\n\nWe have received your application and will contact you soon about the next steps.\n\nGood luck! 🌟`);
+                        closeApplicationModal();
+                        this.reset();
+                    } else {
+                        const errorData = await response.json();
+                        throw new Error(errorData.description || 'Failed to send application to Telegram');
+                    }
+                } catch (error) {
+                    console.error('Error sending application to Telegram:', error);
+                    alert(`❌ Error submitting application: ${error.message}\n\nPlease try again or contact us directly.`);
+                }
+            });
+        }
+
+        // Open booking modal
+        function openBookingModal(masterName, services) {
+            // Store the master name for form submission
+            window.selectedMaster = masterName;
+            document.getElementById('bookingModal').style.display = 'block';
+        }
+
+        // Close booking modal
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        // Scroll to filter section
+        function scrollToBooking() {
+            document.querySelector('.filter-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Carousel logic (add after renderMasters)
+        window.prevSlide = function(id) {
+            console.log('prevSlide called with id:', id);
+            const carousel = document.getElementById(`carousel-${id}`);
+            console.log('carousel element:', carousel);
+            
+            if (!carousel) {
+                console.error('Carousel not found for id:', id);
+                return;
+            }
+            
+            const imgs = carousel.querySelectorAll('.carousel-img');
+            const dots = carousel.querySelectorAll('.dot');
+            console.log('Found images:', imgs.length, 'Found dots:', dots.length);
+            
+            let idx = Array.from(imgs).findIndex(img => img.classList.contains('active'));
+            console.log('Current active index:', idx);
+            
+            if (idx === -1) {
+                console.error('No active image found');
+                return;
+            }
+            
+            // Remove active from current
+            imgs[idx].classList.remove('active');
+            dots[idx].classList.remove('active');
+            
+            // Calculate previous index
+            idx = (idx - 1 + imgs.length) % imgs.length;
+            console.log('New index:', idx);
+            
+            // Add active to new
+            imgs[idx].classList.add('active');
+            dots[idx].classList.add('active');
+            
+            console.log('prevSlide completed successfully');
+        };
+        window.nextSlide = function(id) {
+            console.log('nextSlide called with id:', id);
+            const carousel = document.getElementById(`carousel-${id}`);
+            console.log('carousel element:', carousel);
+            
+            if (!carousel) {
+                console.error('Carousel not found for id:', id);
+                return;
+            }
+            
+            const imgs = carousel.querySelectorAll('.carousel-img');
+            const dots = carousel.querySelectorAll('.dot');
+            console.log('Found images:', imgs.length, 'Found dots:', dots.length);
+            
+            let idx = Array.from(imgs).findIndex(img => img.classList.contains('active'));
+            console.log('Current active index:', idx);
+            
+            if (idx === -1) {
+                console.error('No active image found');
+                return;
+            }
+            
+            // Remove active from current
+            imgs[idx].classList.remove('active');
+            dots[idx].classList.remove('active');
+            
+            // Calculate next index
+            idx = (idx + 1) % imgs.length;
+            console.log('New index:', idx);
+            
+            // Add active to new
+            imgs[idx].classList.add('active');
+            dots[idx].classList.add('active');
+            
+            console.log('nextSlide completed successfully');
+        };
+        window.goToSlide = function(id, n) {
+            console.log('goToSlide called with id:', id, 'slide:', n);
+            const carousel = document.getElementById(`carousel-${id}`);
+            if (!carousel) {
+                console.error('Carousel not found for id:', id);
+                return;
+            }
+            const imgs = carousel.querySelectorAll('.carousel-img');
+            const dots = carousel.querySelectorAll('.dot');
+            if (n >= imgs.length) {
+                console.error('Slide index out of range:', n);
+                return;
+            }
+            imgs.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            imgs[n].classList.add('active');
+            dots[n].classList.add('active');
+        };
+
+        // Swipe/drag support for carousel
+        function enableCarouselSwipe(id) {
+            const carousel = document.getElementById(`carousel-${id}`);
+            if (!carousel) return;
+            
+            // Remove any existing event listeners to prevent duplicates
+            const newCarousel = carousel.cloneNode(true);
+            carousel.parentNode.replaceChild(newCarousel, carousel);
+            
+            const imgs = newCarousel.querySelectorAll('.carousel-img');
+            let startX = 0, endX = 0, isDragging = false;
+
+            // Touch events
+            newCarousel.addEventListener('touchstart', e => {
+                // Don't interfere with arrow clicks
+                if (e.target.classList.contains('carousel-arrow')) return;
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+            newCarousel.addEventListener('touchmove', e => {
+                if (!isDragging) return;
+                endX = e.touches[0].clientX;
+            });
+            newCarousel.addEventListener('touchend', e => {
+                if (!isDragging) return;
+                isDragging = false;
+                if (startX - endX > 40) nextSlide(id);
+                else if (endX - startX > 40) prevSlide(id);
+            });
+
+            // Mouse drag events
+            let mouseDown = false, mouseStart = 0, mouseEnd = 0;
+            newCarousel.addEventListener('mousedown', e => {
+                // Don't interfere with arrow clicks
+                if (e.target.classList.contains('carousel-arrow')) return;
+                mouseDown = true;
+                mouseStart = e.clientX;
+            });
+            newCarousel.addEventListener('mousemove', e => {
+                if (!mouseDown) return;
+                mouseEnd = e.clientX;
+            });
+            newCarousel.addEventListener('mouseup', e => {
+                if (!mouseDown) return;
+                mouseDown = false;
+                if (mouseStart - mouseEnd > 40) nextSlide(id);
+                else if (mouseEnd - mouseStart > 40) prevSlide(id);
+            });
+            newCarousel.addEventListener('mouseleave', e => { mouseDown = false; });
+        }
+
+        // Enable swipe for all carousels after rendering
+        function enableAllCarousels() {
+            console.log('Enabling carousels...');
+            document.querySelectorAll('.carousel').forEach(carousel => {
+                const id = carousel.id.replace('carousel-', '');
+                console.log('Enabling carousel for master:', id);
+                enableCarouselSwipe(id);
+            });
+            console.log('All carousels enabled');
+        }
+        // Call after renderMasters
+        const origRenderMasters = renderMasters;
+        renderMasters = function() {
+            origRenderMasters();
+            enableAllCarousels();
+        };
+    </script>
 </body>
 </html>
